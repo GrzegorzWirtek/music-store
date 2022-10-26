@@ -1,46 +1,53 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const initialState = {
-	products: [
-		{
-			name: 'product name 1',
-			price: 20,
-			nrOfProducts: 4,
-			id: 'a123',
-		},
-		{
-			name: 'product name 2',
-			price: 30,
-			nrOfProducts: 1,
-			id: 'b123',
-		},
-		{
-			name: 'product name 3',
-			price: 55,
-			nrOfProducts: 1,
-			id: 'c123',
-		},
-	],
+export type Product = {
+	id: string;
+	name: string;
+	price: number;
+	nrOfProducts: number;
+	nrInStock: number;
 };
+
+type InitialState = {
+	isLoaded: boolean;
+	products: Product[];
+	error: string;
+};
+
+const initialState: InitialState = {
+	isLoaded: false,
+	products: [],
+	error: '',
+};
+
+export const fetchProducts = createAsyncThunk('shop/fetchShop', async () => {
+	const {
+		data: { products },
+	} = await axios.get('data.json');
+	return products;
+});
 
 const productsSlice = createSlice({
 	name: 'products',
 	initialState,
-	reducers: {
-		takeFromStore: (state, action: PayloadAction<string>) => {
-			state.products = state.products.filter(
-				(product) => product.id !== action.payload,
-			);
-		},
-		returnToStore: (state, action: PayloadAction<string>) => {
-			const returnedProduct = initialState.products.find(
-				(product) => product.id === action.payload,
-			)!;
-			console.log('ret', returnedProduct);
-			state.products = [...state.products, returnedProduct];
-		},
+	reducers: {},
+	extraReducers: (builder) => {
+		builder.addCase(fetchProducts.pending, (state) => {
+			state.isLoaded = false;
+		});
+		builder.addCase(
+			fetchProducts.fulfilled,
+			(state, action: PayloadAction<Product[]>) => {
+				state.products = action.payload;
+			},
+		);
+		builder.addCase(fetchProducts.rejected, (state, action) => {
+			state.isLoaded = false;
+			state.products = [];
+			state.error = action.error.message || 'Fetch data goes wrong';
+		});
 	},
 });
 
 export default productsSlice.reducer;
-export const { takeFromStore, returnToStore } = productsSlice.actions;

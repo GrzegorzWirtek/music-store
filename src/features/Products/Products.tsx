@@ -1,20 +1,17 @@
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { takeFromStore } from './ProductsSlice';
 import { addToCart } from '../Cart/CartSlice';
-
-export type Product = {
-	name: string;
-	price: number;
-	nrOfProducts: number;
-	id: string;
-};
+import { Product } from './ProductsSlice';
+import { fetchProducts } from './ProductsSlice';
 
 const Products = () => {
 	const dispatch = useAppDispatch();
 	const { products } = useAppSelector((state) => state.products);
+	useEffect(() => {
+		dispatch(fetchProducts());
+	}, [dispatch]);
 
 	const handleAddToCart = (product: Product) => {
-		dispatch(takeFromStore(product.id));
 		dispatch(addToCart(product));
 	};
 
@@ -26,13 +23,9 @@ const Products = () => {
 			{products.map((product) => (
 				<div key={product.id}>
 					<p>
-						{product.name}, price: {product.price}{' '}
-						<span
-							onClick={() => handleAddToCart(product)}
-							style={{ border: '1px solid black', cursor: 'pointer' }}>
-							To cart
-						</span>
+						{product.name}, id: {product.id}
 					</p>
+					<button onClick={() => handleAddToCart(product)}>add to cart</button>
 				</div>
 			))}
 		</div>
