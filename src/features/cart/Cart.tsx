@@ -1,23 +1,14 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { add, remove } from './CartSlice';
+import { removeFromCart } from './CartSlice';
+import { returnToStore } from '../Products/ProductsSlice';
 
 const Cart = () => {
-	const { card } = useAppSelector((state) => state.cart);
+	const { cart: card } = useAppSelector((state) => state.cart);
 	const dispatch = useAppDispatch();
 
-	const handleAddProduct = () => {
-		dispatch(
-			add({
-				name: 'product name',
-				price: 20,
-				nrOfProducts: 1,
-				id: Math.random() * 10,
-			}),
-		);
-	};
-
-	const handleRemoveProduct = (id: number) => {
-		dispatch(remove(id));
+	const handleRemoveProduct = (id: string) => {
+		dispatch(removeFromCart(id));
+		dispatch(returnToStore(id));
 	};
 
 	return (
@@ -30,7 +21,6 @@ const Cart = () => {
 					<span onClick={() => handleRemoveProduct(product.id)}>remove</span>
 				</div>
 			))}
-			<button onClick={handleAddProduct}>Dodaj produkt</button>
 		</>
 	);
 };

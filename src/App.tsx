@@ -2,7 +2,7 @@ import './App.scss';
 import { HashRouter } from 'react-router-dom';
 import Router from './routes/Router';
 import Navbar from './components/Navbar/Navbar';
-import Cart from './features/cart/Cart';
+import Cart from './features/Cart/Cart';
 
 function App() {
 	return (

@@ -1,7 +1,9 @@
+import Products from '../../features/Products/Products';
+
 const Shop = () => {
 	return (
 		<>
-			<p>Shop</p>
+			<Products />
 		</>
 	);
 };
