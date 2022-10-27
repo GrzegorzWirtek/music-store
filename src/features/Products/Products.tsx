@@ -6,7 +6,10 @@ import { fetchProducts } from './ProductsSlice';
 
 const Products = () => {
 	const dispatch = useAppDispatch();
-	const { products } = useAppSelector((state) => state.products);
+	const { products, loading, error } = useAppSelector(
+		(state) => state.products,
+	);
+
 	useEffect(() => {
 		dispatch(fetchProducts());
 	}, [dispatch]);
@@ -28,6 +31,8 @@ const Products = () => {
 					<button onClick={() => handleAddToCart(product)}>add to cart</button>
 				</div>
 			))}
+			<p>Loading? {loading ? 'loading...' : 'loaded'}</p>
+			<p>Loading Error? {error ? error : 'no error'}</p>
 		</div>
 	);
 };

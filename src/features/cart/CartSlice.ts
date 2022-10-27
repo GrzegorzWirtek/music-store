@@ -10,7 +10,13 @@ const cartSlice = createSlice({
 	initialState: initialCartState,
 	reducers: {
 		addToCart: (state, action: PayloadAction<Product>) => {
-			state.cart = [...state.cart, action.payload];
+			const id = action.payload.id;
+			const index = state.cart.findIndex((item) => item.id === id);
+			if (index < 0) {
+				state.cart = [...state.cart, action.payload];
+			} else if (state.cart[index].nrOfProducts < state.cart[index].nrInStock) {
+				state.cart[index].nrOfProducts++;
+			}
 		},
 		removeFromCart: (state, action: PayloadAction<string>) => {
 			state.cart = state.cart.filter((item) => item.id !== action.payload);

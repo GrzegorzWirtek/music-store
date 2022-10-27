@@ -10,13 +10,13 @@ export type Product = {
 };
 
 type InitialState = {
-	isLoaded: boolean;
+	loading: boolean;
 	products: Product[];
 	error: string;
 };
 
 const initialState: InitialState = {
-	isLoaded: false,
+	loading: true,
 	products: [],
 	error: '',
 };
@@ -34,16 +34,17 @@ const productsSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(fetchProducts.pending, (state) => {
-			state.isLoaded = false;
+			state.loading = true;
 		});
 		builder.addCase(
 			fetchProducts.fulfilled,
 			(state, action: PayloadAction<Product[]>) => {
 				state.products = action.payload;
+				state.loading = false;
 			},
 		);
 		builder.addCase(fetchProducts.rejected, (state, action) => {
-			state.isLoaded = false;
+			state.loading = false;
 			state.products = [];
 			state.error = action.error.message || 'Fetch data goes wrong';
 		});

@@ -6,7 +6,7 @@ import {
 } from './CartSlice';
 
 const Cart = () => {
-	const { cart: card } = useAppSelector((state) => state.cart);
+	const { cart } = useAppSelector((state) => state.cart);
 	const dispatch = useAppDispatch();
 
 	const handleRemoveProduct = (id: string) => {
@@ -23,12 +23,14 @@ const Cart = () => {
 
 	return (
 		<>
-			{card.map((product) => (
+			{cart.map((product) => (
 				<div key={product.id}>
 					<p>
 						{product.name} id: {product.id} nrOf: {product.nrOfProducts}
 					</p>
-					<span onClick={() => handleRemoveProduct(product.id)}>remove</span>
+					<button onClick={() => handleRemoveProduct(product.id)}>
+						remove
+					</button>
 					<button onClick={() => handleIncreaseNrOfProducts(product.id)}>
 						increase
 					</button>
