@@ -18,15 +18,24 @@ const Products = () => {
 		dispatch(addToCart(product));
 	};
 
+	const p = products
+		? products.map((item, index) => (
+				<div key={index}>
+					<img src={item.name} alt='aa' />
+				</div>
+		  ))
+		: null;
+
 	return (
 		<div>
 			<p style={{ borderTop: '2px solid black', padding: '20px' }}>
-				this is product
+				this is products
 			</p>
+			{p}
 			{products.map((product) => (
-				<div key={product.id}>
+				<div key={product._id}>
 					<p>
-						{product.name}, id: {product.id}
+						{product.name}, id: {product._id}
 					</p>
 					<button onClick={() => handleAddToCart(product)}>add to cart</button>
 				</div>

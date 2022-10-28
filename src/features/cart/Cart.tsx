@@ -24,17 +24,17 @@ const Cart = () => {
 	return (
 		<>
 			{cart.map((product) => (
-				<div key={product.id}>
+				<div key={product._id}>
 					<p>
-						{product.name} id: {product.id} nrOf: {product.nrOfProducts}
+						{product.name} id: {product._id} nrOf: {product.productsInTheCart}
 					</p>
-					<button onClick={() => handleRemoveProduct(product.id)}>
+					<button onClick={() => handleRemoveProduct(product._id)}>
 						remove
 					</button>
-					<button onClick={() => handleIncreaseNrOfProducts(product.id)}>
+					<button onClick={() => handleIncreaseNrOfProducts(product._id)}>
 						increase
 					</button>
-					<button onClick={() => handleDecreaseNrOfProducts(product.id)}>
+					<button onClick={() => handleDecreaseNrOfProducts(product._id)}>
 						decrease
 					</button>
 				</div>

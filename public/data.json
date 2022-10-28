@@ -4,22 +4,22 @@
       "name": "product name 1",
       "price": 20,
       "id": "a123",
-      "nrOfProducts": 1,
-      "nrInStock" : 10
+      "productsInTheCart": 1,
+      "productsInTheShop" : 10
     },
     {
       "name": "product name 2",
       "price": 10,
       "id": "b123",
-      "nrOfProducts": 1,
-      "nrInStock" : 10
+      "productsInTheCart": 1,
+      "productsInTheShop" : 10
     },
     {
       "name": "product name 3",
       "price": 15,
       "id": "c123",
-      "nrOfProducts": 1,
-      "nrInStock" : 10
+      "productsInTheCart": 1,
+      "productsInTheShop" : 10
     }
   ]
 }

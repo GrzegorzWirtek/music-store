@@ -10,28 +10,34 @@ const cartSlice = createSlice({
 	initialState: initialCartState,
 	reducers: {
 		addToCart: (state, action: PayloadAction<Product>) => {
-			const id = action.payload.id;
-			const index = state.cart.findIndex((item) => item.id === id);
+			const id = action.payload._id;
+			const index = state.cart.findIndex((item) => item._id === id);
 			if (index < 0) {
 				state.cart = [...state.cart, action.payload];
-			} else if (state.cart[index].nrOfProducts < state.cart[index].nrInStock) {
-				state.cart[index].nrOfProducts++;
+			} else if (
+				state.cart[index].productsInTheCart <
+				state.cart[index].productsInTheShop
+			) {
+				state.cart[index].productsInTheCart++;
 			}
 		},
 		removeFromCart: (state, action: PayloadAction<string>) => {
-			state.cart = state.cart.filter((item) => item.id !== action.payload);
+			state.cart = state.cart.filter((item) => item._id !== action.payload);
 		},
 		increaseNrOfProducts: (state, action: PayloadAction<string>) => {
 			state.cart.forEach((item) => {
-				if (item.id === action.payload && item.nrOfProducts < item.nrInStock) {
-					item.nrOfProducts++;
+				if (
+					item._id === action.payload &&
+					item.productsInTheCart < item.productsInTheShop
+				) {
+					item.productsInTheCart++;
 				}
 			});
 		},
 		decreaseNrOfProducts: (state, action: PayloadAction<string>) => {
 			state.cart.forEach((item) => {
-				if (item.id === action.payload && item.nrOfProducts > 1) {
-					item.nrOfProducts--;
+				if (item._id === action.payload && item.productsInTheCart > 1) {
+					item.productsInTheCart--;
 				}
 			});
 		},
