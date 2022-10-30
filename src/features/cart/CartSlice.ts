@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../Products/ProductsSlice';
+
+export type ProductInTheCart = {
+	_id: string;
+	name: string;
+	price: number;
+	productsInTheCart: number;
+	productsInTheShop: number;
+};
 
 const initialCartState = {
-	cart: [] as Product[],
+	cart: [] as ProductInTheCart[],
 };
 
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: initialCartState,
 	reducers: {
-		addToCart: (state, action: PayloadAction<Product>) => {
+		addToCart: (state, action: PayloadAction<ProductInTheCart>) => {
 			const id = action.payload._id;
 			const index = state.cart.findIndex((item) => item._id === id);
 			if (index < 0) {

@@ -9,6 +9,7 @@ export type Product = {
 	price: number;
 	productsInTheCart: number;
 	productsInTheShop: number;
+	imageBase64: string;
 };
 
 type InitialState = {
