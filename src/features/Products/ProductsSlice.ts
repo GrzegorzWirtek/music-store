@@ -1,9 +1,17 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const PRUDUCTS_API_URL = 'http://localhost:3001/products';
+export const PRUDUCTS_API_URL = 'http://localhost:3001/products';
 
-export type Product = {
+export type NewProduct = {
+	name: string;
+	price: number;
+	productsInTheCart: number;
+	productsInTheShop: number;
+	imageBase64: string;
+};
+
+export type Product = NewProduct & {
 	_id: string;
 	name: string;
 	price: number;
@@ -24,7 +32,7 @@ const initialState: InitialState = {
 	error: '',
 };
 
-export const fetchProducts = createAsyncThunk('shop/fetchShop', async () => {
+export const fetchProducts = createAsyncThunk('shop/fetch', async () => {
 	const { data } = await axios.get(PRUDUCTS_API_URL);
 	return data;
 });
