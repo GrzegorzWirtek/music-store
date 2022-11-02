@@ -5,7 +5,7 @@ import { addProduct } from './AddProductSlice';
 const MAX_IMAGE_SIZE = 150000;
 
 const AddProduct = () => {
-	const [downloadMessage, setDownloadMessage] = useState<string | null>(null);
+	const [sizeMessage, setSizeMessage] = useState<string | null>(null);
 	const dispatch = useAppDispatch();
 
 	const toBase64 = (file: File) =>
@@ -28,7 +28,7 @@ const AddProduct = () => {
 		const imageFile = target.image.files[0];
 
 		if (imageFile.size > MAX_IMAGE_SIZE) {
-			return setDownloadMessage('Image is too big. Maximum size is 150 KB');
+			return setSizeMessage('Image is too big. Maximum size is 150 KB');
 		} else {
 			const imageBase64 = (await toBase64(imageFile)) as string;
 			const name = target.name.value;
@@ -57,7 +57,7 @@ const AddProduct = () => {
 				required
 				placeholder='Number of Products'
 			/>
-			{downloadMessage && downloadMessage}
+			{sizeMessage && sizeMessage}
 			<input type='file' name='image' required />
 			<button type='submit'>Submit</button>
 		</form>

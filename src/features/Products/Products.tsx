@@ -10,8 +10,10 @@ const Products = () => {
 	);
 
 	useEffect(() => {
-		dispatch(fetchProducts());
-	}, [dispatch]);
+		if (!products.length) {
+			dispatch(fetchProducts());
+		}
+	}, [dispatch, products.length]);
 
 	const handleAddToCart = (product: ProductInTheCart) => {
 		dispatch(addToCart(product));

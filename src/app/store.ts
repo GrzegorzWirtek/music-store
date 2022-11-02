@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '../features/Cart/CartSlice';
+import authReducer from '../features/Auth/AuthSlice';
 import productsReducer from '../features/Products/ProductsSlice';
-import AddProductReducer from '../features/AddProduct/AddProductSlice';
+import addProductReducer from '../features/AddProduct/AddProductSlice';
 
 import {
 	persistReducer,
@@ -23,8 +24,9 @@ const persistedReducer = persistReducer(persistConfig, cartReducer);
 
 const store = configureStore({
 	reducer: {
+		admin: authReducer,
 		products: productsReducer,
-		addProduct: AddProductReducer,
+		addProduct: addProductReducer,
 		cart: persistedReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
