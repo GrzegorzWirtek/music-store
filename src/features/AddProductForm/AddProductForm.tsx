@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
-import { addProduct } from './AddProductSlice';
+import { addProduct } from './AddProductFormSlice';
 
 const MAX_IMAGE_SIZE = 150000;
 
