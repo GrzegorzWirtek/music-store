@@ -1,0 +1,30 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+
+  &__form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid grey;
+    background-color: white;
+  }
+
+  &__title{
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  &__button{
+    margin: 0 10px;
+    cursor: pointer;
+  }
+}
