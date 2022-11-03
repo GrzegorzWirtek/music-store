@@ -3,9 +3,9 @@ import {
 	removeFromCart,
 	increaseNrOfProducts,
 	decreaseNrOfProducts,
-} from './CartSlice';
+} from './CartContentSlice';
 
-const Cart = () => {
+const CartContent = () => {
 	const { cart } = useAppSelector((state) => state.cart);
 	const dispatch = useAppDispatch();
 
@@ -43,4 +43,4 @@ const Cart = () => {
 	);
 };
 
-export default Cart;
+export default CartContent;

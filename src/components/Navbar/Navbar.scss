@@ -1,8 +1,28 @@
 .navbar{
-
   &__link{
     margin: 10px;
     font-size: 20px;
     font-weight: bold;
+  }
+
+  &__link--cart{
+    position: relative;
+    display: inline-block;
+    transform: translateY(5px);
+  }
+
+  &__img{
+    width: 30px;
+  }
+
+  &__cart-number{
+     position: absolute;
+     top: -25px;
+     right: -8px;
+     background-color: rgba(31, 31, 80, 0.781);
+     color: white;
+     width: 24px;
+     text-align: center;
+     border-radius: 50%;
   }
 }

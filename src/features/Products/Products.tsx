@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { addToCart, ProductInTheCart } from '../Cart/CartSlice';
+import Product from '../../components/Product/Product';
+import { addToCart, ProductInTheCart } from '../CartContent/CartContentSlice';
 import { fetchProducts } from './ProductsSlice';
 
 const Products = () => {
 	const dispatch = useAppDispatch();
-	const { products, loading, error } = useAppSelector(
-		(state) => state.products,
-	);
+	const { products } = useAppSelector((state) => state.products);
 
 	useEffect(() => {
 		if (!products.length) {
@@ -24,37 +23,9 @@ const Products = () => {
 			<p style={{ borderTop: '2px solid black', padding: '20px' }}>
 				this is products
 			</p>
-			{products.map(
-				({
-					_id,
-					name,
-					price,
-					productsInTheCart,
-					productsInTheShop,
-					imageBase64,
-				}) => (
-					<div key={_id}>
-						<p>
-							{name}, price: {price}
-						</p>
-						<img src={imageBase64} alt='aa' />
-						<button
-							onClick={() =>
-								handleAddToCart({
-									_id,
-									name,
-									price,
-									productsInTheCart,
-									productsInTheShop,
-								})
-							}>
-							add to cart
-						</button>
-					</div>
-				),
-			)}
-			<p>Loading? {loading ? 'loading...' : 'loaded'}</p>
-			<p>Loading Error? {error ? error : 'no error'}</p>
+			{products.map((item) => (
+				<Product key={item._id} product={item} click={handleAddToCart} />
+			))}
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ import Shop from '../pages/Shop/Shop';
 import Admin from '../pages/Admin/Admin';
 import AddProduct from '../pages/Admin/AddProduct/AddProduct';
 import DeleteProduct from '../pages/Admin/DeleteProduct/DeleteProduct';
+import Cart from '../pages/Cart/Cart';
 
 const Router = () => {
 	const {
@@ -29,6 +30,7 @@ const Router = () => {
 					login && password ? <DeleteProduct /> : <Navigate to='/admin' />
 				}
 			/>
+			<Route path='/cart' element={<Cart />} />
 		</Routes>
 	);
 };
