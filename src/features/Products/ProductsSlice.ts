@@ -20,14 +20,20 @@ export type Product = NewProduct & {
 	imageBase64: string;
 };
 
+export type ProductId = {
+	_id: string;
+};
+
 type InitialState = {
 	loading: boolean;
+	actionCompleted: boolean;
 	products: Product[];
 	error: string;
 };
 
 const initialState: InitialState = {
-	loading: true,
+	loading: false,
+	actionCompleted: false,
 	products: [],
 	error: '',
 };
@@ -41,6 +47,14 @@ export const addProduct = createAsyncThunk(
 	'shop/add',
 	async (newProduct: NewProduct) => {
 		const { data } = await axios.post(PRUDUCTS_API_URL, newProduct);
+		return data;
+	},
+);
+
+export const deleteProduct = createAsyncThunk(
+	'shop/delete',
+	async (productId: ProductId) => {
+		const { data } = await axios.delete(PRUDUCTS_API_URL, { data: productId });
 		return data;
 	},
 );
@@ -67,18 +81,35 @@ const productsSlice = createSlice({
 		});
 		builder.addCase(addProduct.pending, (state) => {
 			state.loading = true;
+			state.actionCompleted = false;
 		});
 		builder.addCase(
 			addProduct.fulfilled,
 			(state, action: PayloadAction<Product[]>) => {
 				state.products = action.payload;
 				state.loading = false;
+				state.actionCompleted = true;
 			},
 		);
 		builder.addCase(addProduct.rejected, (state, action) => {
 			state.loading = false;
 			state.products = [];
 			state.error = action.error.message || 'Add product goes wrong';
+		});
+		builder.addCase(deleteProduct.pending, (state) => {
+			state.loading = true;
+		});
+		builder.addCase(
+			deleteProduct.fulfilled,
+			(state, action: PayloadAction<Product[]>) => {
+				state.products = action.payload;
+				state.loading = false;
+			},
+		);
+		builder.addCase(deleteProduct.rejected, (state, action) => {
+			state.loading = false;
+			state.products = [];
+			state.error = action.error.message || 'Delete product goes wrong';
 		});
 	},
 });

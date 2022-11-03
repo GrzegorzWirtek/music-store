@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addProduct } from '../../features/Products/ProductsSlice';
 import Spinner from '../Spinner/Spinner';
@@ -7,8 +7,18 @@ const MAX_IMAGE_SIZE = 150000;
 
 const AddProduct = () => {
 	const [sizeMessage, setSizeMessage] = useState<string | null>(null);
+	const [successMessage, setSuccessMesage] = useState<string | null>(null);
+
 	const dispatch = useAppDispatch();
-	const { loading } = useAppSelector((state) => state.products);
+	const { loading, actionCompleted } = useAppSelector(
+		(state) => state.products,
+	);
+
+	useEffect(() => {
+		if (actionCompleted) {
+			setSuccessMesage('Added successfully');
+		}
+	}, [actionCompleted]);
 
 	const toBase64 = (file: File) =>
 		new Promise((res, rej) => {
@@ -53,10 +63,17 @@ const AddProduct = () => {
 		}
 	};
 
+	const handleFocus = () => {
+		setSuccessMesage(null);
+	};
+
 	return (
 		<>
 			{loading && <Spinner />}
-			<form className='add-product-form' onSubmit={handleSubmit}>
+			<form
+				className='add-product-form'
+				onFocus={handleFocus}
+				onSubmit={handleSubmit}>
 				<input type='text' name='name' required placeholder='Product name' />
 				<input type='number' name='price' required placeholder='Price' />
 				<input
@@ -69,6 +86,7 @@ const AddProduct = () => {
 				<input type='file' name='image' required />
 				<button type='submit'>Submit</button>
 			</form>
+			{successMessage && <p>{successMessage}</p>}
 		</>
 	);
 };

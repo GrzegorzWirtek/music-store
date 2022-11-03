@@ -24,7 +24,12 @@ const Products = () => {
 				this is products
 			</p>
 			{products.map((item) => (
-				<Product key={item._id} product={item} click={handleAddToCart} />
+				<Product
+					key={item._id}
+					product={item}
+					click={handleAddToCart}
+					buttonDescr='Add to cart'
+				/>
 			))}
 		</div>
 	);

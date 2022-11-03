@@ -1,8 +1,42 @@
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import Product from '../../../components/Product/Product';
+import Spinner from '../../../components/Spinner/Spinner';
+import { ProductInTheCart } from '../../../features/CartContent/CartContentSlice';
+import {
+	deleteProduct,
+	fetchProducts,
+} from '../../../features/Products/ProductsSlice';
+
 const DeleteProduct = () => {
+	const dispatch = useAppDispatch();
+	const { products, loading } = useAppSelector((state) => state.products);
+
+	useEffect(() => {
+		if (!products.length) {
+			dispatch(fetchProducts());
+		}
+	}, [dispatch, products.length]);
+
+	const handleDelete = ({ _id }: ProductInTheCart) => {
+		dispatch(deleteProduct({ _id }));
+	};
+
 	return (
-		<section className='delete-product'>
-			<p>Delete</p>
-		</section>
+		<>
+			{loading && <Spinner />}
+			<section className='delete-product'>
+				<p>Delete</p>
+				{products.map((item) => (
+					<Product
+						key={item._id}
+						product={item}
+						click={handleDelete}
+						buttonDescr='Delete Product'
+					/>
+				))}
+			</section>
+		</>
 	);
 };
 export default DeleteProduct;
