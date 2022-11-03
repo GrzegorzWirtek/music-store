@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../../app/hooks';
-import { addProduct } from './AddProductFormSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { addProduct } from '../../features/Products/ProductsSlice';
+import Spinner from '../Spinner/Spinner';
 
 const MAX_IMAGE_SIZE = 150000;
 
 const AddProduct = () => {
 	const [sizeMessage, setSizeMessage] = useState<string | null>(null);
 	const dispatch = useAppDispatch();
+	const { loading } = useAppSelector((state) => state.products);
 
 	const toBase64 = (file: File) =>
 		new Promise((res, rej) => {
@@ -35,6 +37,10 @@ const AddProduct = () => {
 			const price = parseInt(target.price.value);
 			const productsInTheShop = parseInt(target.productsInTheShop.value);
 
+			target.name.value = '';
+			target.price.value = '';
+			target.productsInTheShop.value = '';
+
 			dispatch(
 				addProduct({
 					name,
@@ -48,19 +54,22 @@ const AddProduct = () => {
 	};
 
 	return (
-		<form className='add-product-form' onSubmit={handleSubmit}>
-			<input type='text' name='name' required placeholder='Product name' />
-			<input type='number' name='price' required placeholder='Price' />
-			<input
-				type='number'
-				name='productsInTheShop'
-				required
-				placeholder='Number of Products'
-			/>
-			{sizeMessage && sizeMessage}
-			<input type='file' name='image' required />
-			<button type='submit'>Submit</button>
-		</form>
+		<>
+			{loading && <Spinner />}
+			<form className='add-product-form' onSubmit={handleSubmit}>
+				<input type='text' name='name' required placeholder='Product name' />
+				<input type='number' name='price' required placeholder='Price' />
+				<input
+					type='number'
+					name='productsInTheShop'
+					required
+					placeholder='Number of Products'
+				/>
+				{sizeMessage && sizeMessage}
+				<input type='file' name='image' required />
+				<button type='submit'>Submit</button>
+			</form>
+		</>
 	);
 };
 export default AddProduct;

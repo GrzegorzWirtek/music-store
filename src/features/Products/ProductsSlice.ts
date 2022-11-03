@@ -37,6 +37,14 @@ export const fetchProducts = createAsyncThunk('shop/fetch', async () => {
 	return data;
 });
 
+export const addProduct = createAsyncThunk(
+	'shop/add',
+	async (newProduct: NewProduct) => {
+		const { data } = await axios.post(PRUDUCTS_API_URL, newProduct);
+		return data;
+	},
+);
+
 const productsSlice = createSlice({
 	name: 'products',
 	initialState,
@@ -56,6 +64,21 @@ const productsSlice = createSlice({
 			state.loading = false;
 			state.products = [];
 			state.error = action.error.message || 'Fetch data goes wrong';
+		});
+		builder.addCase(addProduct.pending, (state) => {
+			state.loading = true;
+		});
+		builder.addCase(
+			addProduct.fulfilled,
+			(state, action: PayloadAction<Product[]>) => {
+				state.products = action.payload;
+				state.loading = false;
+			},
+		);
+		builder.addCase(addProduct.rejected, (state, action) => {
+			state.loading = false;
+			state.products = [];
+			state.error = action.error.message || 'Add product goes wrong';
 		});
 	},
 });

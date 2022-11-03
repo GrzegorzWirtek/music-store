@@ -10,7 +10,9 @@ const Product = ({ product, click }: ProductProps) => {
 	const { _id, name, price, productsInTheCart, productsInTheShop } = product;
 	return (
 		<div className='product'>
-			<p>this is product {_id}</p>
+			<p>
+				{name} {price}zł
+			</p>
 			<button
 				onClick={() =>
 					click({ _id, name, price, productsInTheCart, productsInTheShop })
