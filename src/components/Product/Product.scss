@@ -1,0 +1,88 @@
+@import '../../sass/variables.scss';
+
+$product-max-width: 400px;
+$product-border-color: grey;
+$product-margin-s: 12px;
+$product-margin-m: 18px;
+$product-margin-l: 25px;
+$min-width-s: 400px;
+$min-width-l: 800px;
+$product-space-between: 20px;
+$product-text-padding: 10px;
+
+.product{
+  width: 90vw;
+  margin: $product-space-between auto;
+  max-width: $product-max-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid $product-border-color;
+
+  @media(min-width: $min-width-s){
+    width: $product-max-width;
+  }
+
+  @media(min-width: $min-width-l){
+    margin: $product-space-between;
+  }
+
+  &__img-wrapper{
+    width: 90vw;
+    height: 90vw;
+    overflow: hidden;
+
+    @media(min-width: $min-width-s){
+      height: $product-max-width;;
+      width: $product-max-width;
+    }
+  }
+
+  &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name{
+    margin-top: $product-margin-m;
+    margin-bottom: $product-margin-s;
+    padding: 0 $product-text-padding;
+    text-align: center;
+    font-family: $josefin-ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__price{
+    margin-bottom: $product-margin-l;
+    padding: 0 $product-text-padding;
+    font-family: $josefin-ff;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    flex-grow: 1;
+  }
+
+  &__in-the-shop{
+    margin-bottom: $product-margin-s;
+    padding: 0 $product-text-padding;
+    text-align: center;
+    font-family: $josefin-ff;
+  }
+
+  &__btn{
+    padding: 14px 55px;
+    margin-bottom: $product-margin-l;
+    font-family: $cuprum-ff;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 1px solid grey;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+}

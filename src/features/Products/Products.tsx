@@ -1,3 +1,4 @@
+import './Products.scss';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import Product from '../../components/Product/Product';
@@ -19,10 +20,7 @@ const Products = () => {
 	};
 
 	return (
-		<div>
-			<p style={{ borderTop: '2px solid black', padding: '20px' }}>
-				this is products
-			</p>
+		<section className='products'>
 			{products.map((item) => (
 				<Product
 					key={item._id}
@@ -31,7 +29,7 @@ const Products = () => {
 					buttonDescr='Add to cart'
 				/>
 			))}
-		</div>
+		</section>
 	);
 };
 export default Products;

@@ -11,6 +11,12 @@ const Navbar = () => {
 	const {
 		admin: { login, password },
 	} = useAppSelector((state) => state.admin);
+
+	const allProductsInTheCart = cart.reduce(
+		(acc, item) => acc + item.productsInTheCart,
+		0,
+	);
+
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
@@ -55,7 +61,7 @@ const Navbar = () => {
 			</nav>
 			<Link className='navbar__link navbar__link--cart' to='/cart'>
 				<img src='cart.png' alt='cart icon' className='navbar__img' />
-				<p className='navbar__cart-number'>{cart.length}</p>
+				<p className='navbar__cart-number'>{allProductsInTheCart}</p>
 			</Link>
 		</>
 	);

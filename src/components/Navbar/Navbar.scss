@@ -31,7 +31,6 @@
     flex-direction: row;
     align-items: center;
     height: $nav-desktop-height;
-    background-color: transparent;
     background-color: $nav-bcg-color;
   }
 
@@ -69,13 +68,16 @@
   }
 
   &__cart-number{
-     position: absolute;
-     top: -25px;
-     right: -8px;
-     background-color: rgba(31, 31, 80, 0.781);
-     color: white;
-     width: 24px;
-     text-align: center;
-     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(31, 31, 80, 0.781);
+    color: white;
   }
 }

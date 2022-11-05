@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;600;700&family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+
+$cuprum-ff: 'Cuprum', sans-serif;
+$josefin-ff: 'Josefin Sans', sans-serif;
+
 $min-width-desktop: 800px;
 $transition-time: 0.2s;
 
 $nav-desktop-height: 100px;
 $nav-mobile-height: 50vh;
 $nav-hover-color: grey;
-$nav-bcg-color: rgba(68, 58, 106, 0.2);
+$nav-bcg-color: white;
 $link-margin-left: 25px;
 $nav-bcg-color-mobile: rgb(197, 241, 178);
 $link-margin-bottom-mobile: 20px;
