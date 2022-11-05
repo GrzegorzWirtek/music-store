@@ -1,14 +1,67 @@
+@import '../../sass/variables.scss';
+
 .navbar{
+  position: fixed;
+  right: 0;
+  top: -50vh;
+  width: 100%;
+  height:  $nav-mobile-height;;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $nav-bcg-color-mobile;
+  z-index: 2;
+  transition: transform $transition-time;
+
+  &--active{
+    transform: translateY(50vh);
+
+    @media (min-width: $min-width-desktop){
+      transform: translateY(0);
+      transition: transform 0s;
+    }
+  }
+
+  @media (min-width: $min-width-desktop){
+    position: fixed;
+    left: 0;
+    top: 0;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: $nav-desktop-height;
+    background-color: transparent;
+    background-color: $nav-bcg-color;
+  }
+
   &__link{
-    margin: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    margin-left: 0;
+    margin-bottom: $link-margin-bottom-mobile;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    transition: color $transition-time;
+    cursor: pointer;
+
+    @media (min-width: $min-width-desktop){
+      margin-left: $link-margin-left;
+      margin-bottom: 0;
+    }
+
+    &:hover{
+      color: $nav-hover-color;
+    }
   }
 
   &__link--cart{
-    position: relative;
-    display: inline-block;
-    transform: translateY(5px);
+    position: fixed;
+    top: calc($ham-pos-top - 10px);
+    right: $ham-pos-left;
+    z-index: 2;
   }
 
   &__img{
