@@ -2,20 +2,34 @@
 
 .cart-item{
   display: grid;
-  grid-template-areas:'image name name'
-                      'image price price'
-                      'image quanity remove-btn';
+  grid-template-areas:'image name name remove-btn'
+                      'image price quanity quanity'
+                      'image price quanity quanity';
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: $cart-item-img-size 1fr auto;
-  padding: $cart-item-padding-l $cart-item-padding-s;
+  grid-template-columns: $cart-item-img-size-s 1fr 1fr auto;
+
+  padding: $cart-item-padding-m $cart-item-padding-xs;
   border-top: 1px solid $border-color;
+
+  @media (min-width: $min-width-m){
+    grid-template-areas:'image name remove-btn'
+    'image price price'
+    'image quanity quanity';
+    grid-template-columns: $cart-item-img-size-l 1fr auto;
+
+  }
 
   &__img-wrapper{
     grid-area: image;
-    width: $cart-item-img-size;
-    height: $cart-item-img-size;
+    width: $cart-item-img-size-s;
+    height: $cart-item-img-size-s;
     overflow: hidden;
     border: 1px solid $border-color;
+
+    @media (min-width: $min-width-m){
+      width: $cart-item-img-size-l;
+      height: $cart-item-img-size-l;
+    }
   }
 
   &__img{
@@ -30,44 +44,78 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding-left: $cart-item-padding-s;
+    padding-left: $cart-item-padding-xs;
     margin-bottom: $cart-item-margin-m;
     align-self: flex-start;
+    font-size: 0.6rem;
+
+    @media (min-width: $min-width-m){
+      padding-left: $cart-item-padding-s;
+      font-size: 1rem;
+    }
   }
 
   &__price{
     grid-area: price;
     align-self: flex-start;
-    padding-left: $cart-item-padding-s;
+    padding-left: $cart-item-padding-xs;
     font-family: $josefin-ff;
     font-weight: 600;
     text-transform: uppercase;
+    font-size: 0.8rem;
+
+    @media (min-width: $min-width-m){
+      padding-left: $cart-item-padding-s;
+      font-size: 1rem;
+    }
   }
 
   &__nr-of-wrapper{
     grid-area: quanity;
     display: flex;
     flex-wrap: wrap;
-    width: calc($cart-item-nr-of-size * 3);
+    width: calc($cart-item-nr-of-size-s * 3);
     margin-left: $cart-item-padding-s;
+
+    
+    @media (min-width: $min-width-m){
+      width: calc($cart-item-nr-of-size-l * 3);
+    }
   }
 
   &__nr-of-title{
     flex-basis: 100%;
     text-align: center;
+    font-family: $josefin-ff;
+    font-size: 0.8rem;
+
+    @media (min-width: $min-width-m){
+      font-size: 1rem;
+    }
   }
 
   &__nr-of-item{
-    flex-basis: $cart-item-nr-of-size;
-    height: $cart-item-nr-of-size;
+    flex-basis: $cart-item-nr-of-size-s;
+    height: $cart-item-nr-of-size-s;
     border: 1px solid $border-color-dark;
     background-color: transparent;
     outline: none;
-    font-size: 1.2rem;
+
+    @media (min-width: $min-width-m){
+      flex-basis: $cart-item-nr-of-size-l;
+      height: $cart-item-nr-of-size-l;
+      font-size: 1.5rem;
+    }
   }
 
   &__btn{
     cursor: pointer;
+    font-family: $cuprum-ff;
+    font-size: 1.2rem;
+
+    @media (min-width: $min-width-m){
+      font-size: 1.5rem;
+    }
   }
 
   &__number{
@@ -76,18 +124,34 @@
     justify-content: center;
     border-left: none;
     border-right: none;
+    font-family: $cuprum-ff;
+    font-size: 0.8rem;
+
+    @media (min-width: $min-width-m){
+      font-size: 1rem;
+    }
   }
 
   &__remove-btn{
     grid-area: remove-btn;
-    align-self: flex-end;
-    height: $cart-item-nr-of-size;
-    padding: 0 20px;
-    margin-top: $cart-item-margin-m;
-    border: 1px solid $border-color-dark;
+    align-self: flex-start;
+    justify-self: flex-end;
+    height: $cart-item-remove-btn-size-s;
+    margin-left: $cart-item-padding-xs;
+    border: none;
     background-color: transparent;
     outline: none;
     font-size: 1.2rem;
     cursor: pointer;
+    transform: translateY(-5px);
+
+    @media (min-width: $min-width-m){
+      margin-left: $cart-item-padding-s;
+      height: $cart-item-remove-btn-size-l;
+    }
+  }
+
+  &__remove-img{
+    height: 100%;
   }
 }

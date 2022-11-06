@@ -21,6 +21,9 @@ const CartItem = ({
 			</div>
 
 			<h2 className='cart-item__name'>{name}</h2>
+			<button className='cart-item__remove-btn' onClick={() => remove(_id)}>
+				<img className='cart-item__remove-img' src='delete.svg' alt='' />
+			</button>
 			<p className='cart-item__price'>{price}$</p>
 
 			<div className='cart-item__nr-of-wrapper'>
@@ -39,9 +42,6 @@ const CartItem = ({
 					+
 				</button>
 			</div>
-			<button className='cart-item__remove-btn' onClick={() => remove(_id)}>
-				Remove from cart
-			</button>
 		</div>
 	);
 };

@@ -1,7 +1,5 @@
 @import '../../sass/variables.scss';
 
-$cart-content-max-width: 700px;
-
 .cart-content{
   @include box-shadow;
   width: 90vw;
@@ -12,7 +10,7 @@ $cart-content-max-width: 700px;
     font-family: $josefin-ff;
     text-align: center;
     font-size: 3rem;
-    padding: 15px 0;
+    padding: $cart-item-padding-s 0;
   }
 
   &__empty{

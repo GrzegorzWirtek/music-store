@@ -36,7 +36,7 @@
 
   &__link{
     margin-left: 0;
-    margin-bottom: $link-margin-bottom-mobile;
+    margin-bottom: $nav-link-margin-bottom-mobile;
     outline: none;
     border: none;
     background-color: transparent;
@@ -47,7 +47,7 @@
     cursor: pointer;
 
     @media (min-width: $min-width-l){
-      margin-left: $link-margin-left;
+      margin-left: $nav-link-margin-left;
       margin-bottom: 0;
     }
 
