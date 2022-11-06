@@ -1,7 +1,6 @@
 import './Product.scss';
 import { Product as ProductType } from '../../features/Products/ProductsSlice';
 import { ProductInTheCart } from '../../features/CartContent/CartContentSlice';
-// import { url } from 'inspector';
 
 type ProductProps = {
 	product: ProductType;

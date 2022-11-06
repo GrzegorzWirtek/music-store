@@ -74,12 +74,13 @@ $product-text-padding: 10px;
   }
 
   &__btn{
-    padding: 14px 55px;
+    padding: 16px 70px;
     margin-bottom: $product-margin-l;
     font-family: $cuprum-ff;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
+    font-size: 0.9rem;
     border: 1px solid grey;
     background-color: transparent;
     outline: none;
