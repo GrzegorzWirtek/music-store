@@ -16,13 +16,13 @@
   &--active{
     transform: translateY(50vh);
 
-    @media (min-width: $min-width-desktop){
+    @media (min-width: $min-width-l){
       transform: translateY(0);
       transition: transform 0s;
     }
   }
 
-  @media (min-width: $min-width-desktop){
+  @media (min-width: $min-width-l){
     position: fixed;
     left: 0;
     top: 0;
@@ -46,7 +46,7 @@
     transition: color $transition-time;
     cursor: pointer;
 
-    @media (min-width: $min-width-desktop){
+    @media (min-width: $min-width-l){
       margin-left: $link-margin-left;
       margin-bottom: 0;
     }

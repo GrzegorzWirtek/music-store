@@ -1,0 +1,93 @@
+@import '../../sass/variables.scss';
+
+.cart-item{
+  display: grid;
+  grid-template-areas:'image name name'
+                      'image price price'
+                      'image quanity remove-btn';
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: $cart-item-img-size 1fr auto;
+  padding: $cart-item-padding-l $cart-item-padding-s;
+  border-top: 1px solid $border-color;
+
+  &__img-wrapper{
+    grid-area: image;
+    width: $cart-item-img-size;
+    height: $cart-item-img-size;
+    overflow: hidden;
+    border: 1px solid $border-color;
+  }
+
+  &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name{
+    grid-area: name;
+    font-family: $josefin-ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: $cart-item-padding-s;
+    margin-bottom: $cart-item-margin-m;
+    align-self: flex-start;
+  }
+
+  &__price{
+    grid-area: price;
+    align-self: flex-start;
+    padding-left: $cart-item-padding-s;
+    font-family: $josefin-ff;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__nr-of-wrapper{
+    grid-area: quanity;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc($cart-item-nr-of-size * 3);
+    margin-left: $cart-item-padding-s;
+  }
+
+  &__nr-of-title{
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  &__nr-of-item{
+    flex-basis: $cart-item-nr-of-size;
+    height: $cart-item-nr-of-size;
+    border: 1px solid $border-color-dark;
+    background-color: transparent;
+    outline: none;
+    font-size: 1.2rem;
+  }
+
+  &__btn{
+    cursor: pointer;
+  }
+
+  &__number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+  }
+
+  &__remove-btn{
+    grid-area: remove-btn;
+    align-self: flex-end;
+    height: $cart-item-nr-of-size;
+    padding: 0 20px;
+    margin-top: $cart-item-margin-m;
+    border: 1px solid $border-color-dark;
+    background-color: transparent;
+    outline: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}

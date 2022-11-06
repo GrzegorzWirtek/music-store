@@ -13,7 +13,7 @@
   z-index: 3;
   visibility: visible;
 
-  @media(min-width: $min-width-desktop){
+  @media(min-width: $min-width-l){
     visibility: hidden;
   }
 

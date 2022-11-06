@@ -1,16 +1,7 @@
 @import '../../sass/variables.scss';
 
-$product-max-width: 400px;
-$product-border-color: grey;
-$product-margin-s: 12px;
-$product-margin-m: 18px;
-$product-margin-l: 25px;
-$min-width-s: 400px;
-$min-width-l: 800px;
-$product-space-between: 20px;
-$product-text-padding: 10px;
-
 .product{
+  @include box-shadow;
   width: 90vw;
   margin: $product-space-between auto;
   max-width: $product-max-width;
@@ -18,7 +9,6 @@ $product-text-padding: 10px;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  border: 1px solid $product-border-color;
 
   @media(min-width: $min-width-s){
     width: $product-max-width;
@@ -81,7 +71,7 @@ $product-text-padding: 10px;
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 0.9rem;
-    border: 1px solid grey;
+    border: 1px solid $border-color-dark;
     background-color: transparent;
     outline: none;
     cursor: pointer;

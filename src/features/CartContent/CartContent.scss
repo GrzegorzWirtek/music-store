@@ -1,0 +1,25 @@
+@import '../../sass/variables.scss';
+
+$cart-content-max-width: 700px;
+
+.cart-content{
+  @include box-shadow;
+  width: 90vw;
+  max-width: $cart-content-max-width;
+  margin: 10px auto;
+
+  &__title{
+    font-family: $josefin-ff;
+    text-align: center;
+    font-size: 3rem;
+    padding: 15px 0;
+  }
+
+  &__empty{
+    font-family: $cuprum-ff;
+    border-top: 1px solid $border-color;
+    padding: $cart-item-padding-l $cart-item-padding-s;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
