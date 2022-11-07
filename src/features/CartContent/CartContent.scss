@@ -9,15 +9,31 @@
   &__title{
     font-family: $josefin-ff;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: $cart-item-padding-s 0;
+    border-bottom: 1px solid $border-color;
+
+    @media (min-width: $min-width-l){
+      font-size: 3rem;
+    }
   }
 
   &__empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__empty-message{
     font-family: $cuprum-ff;
-    border-top: 1px solid $border-color;
     padding: $cart-item-padding-l $cart-item-padding-s;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  &__go-to-shop{
+    @include button;
+    text-decoration: none;
+    color: black;
   }
 }

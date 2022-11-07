@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;600;700&family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Gluten:wght@700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
 
 $cuprum-ff: 'Cuprum', sans-serif;
 $josefin-ff: 'Josefin Sans', sans-serif;
+$gluten-ff: 'Gluten', cursive;
 
-$transition-time: 0.2s;
+$max-app-width: 1800px;
+
+$transition-time: .2s;
 
 $min-width-s: 400px;
 $min-width-m: 600px;
@@ -11,6 +15,8 @@ $min-width-l: 800px;
 
 $border-color: #d1d1d1;
 $border-color-dark: rgb(147, 147, 147);
+
+$btn-hover-color: #e8d7ff;
 
 $cart-content-max-width: 700px;
 
@@ -25,23 +31,28 @@ $cart-item-padding-l: 40px;
 $cart-item-margin-m: 16px;
 $cart-item-remove-btn-size-s: 22px;
 $cart-item-remove-btn-size-l: 30px;
+$cart-item-nr-color: #c67300c6;
 
 $ham-pos-top: 50px;
-$ham-pos-left: 20px;
+$ham-pos-left: 25px;
 $ham-width: 32px;
 $ham-height: 16px;
 $ham-item-height: 1.5px;
 $ham-item-color: black;
 
+$logo-color: #d7b6ff;
+
 $nav-link-margin-left: 25px;
 $nav-link-margin-bottom-mobile: 20px;
-$nav-desktop-height: 100px;
+$nav-desktop-height: 130px;
 $nav-mobile-height: 50vh;
-$nav-hover-color: grey;
+$nav-hover-color: black;
+$nav-color: grey;
 $nav-bcg-color: white;
 $nav-bcg-color-mobile: rgb(197, 241, 178);
+$nav-horizontal-margin: 40px;
 
-$product-max-width: 400px;
+$product-max-width: 360px;
 $product-border-color: grey;
 $product-margin-s: 12px;
 $product-margin-m: 18px;
@@ -53,4 +64,23 @@ $product-text-padding: 10px;
   -webkit-box-shadow: 0px 0px 8px -2px rgba(128, 128, 128, 1);
   -moz-box-shadow: 0px 0px 8px -2px rgba(128, 128, 128, 1);
   box-shadow: 0px 0px 8px -2px rgba(128, 128, 128, 1);
+}
+
+@mixin button {
+  padding: 12px 70px;
+  margin-bottom: $product-margin-l;
+  font-family: $cuprum-ff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  border: 1px solid $border-color-dark;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: $transition-time;
+
+  &:hover{
+    background-color: $btn-hover-color;
+  }
 }

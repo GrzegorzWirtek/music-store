@@ -7,7 +7,6 @@
                       'image price quanity quanity';
   grid-template-rows: auto 1fr auto;
   grid-template-columns: $cart-item-img-size-s 1fr 1fr auto;
-
   padding: $cart-item-padding-m $cart-item-padding-xs;
   border-top: 1px solid $border-color;
 
@@ -16,7 +15,7 @@
     'image price price'
     'image quanity quanity';
     grid-template-columns: $cart-item-img-size-l 1fr auto;
-
+    padding: $cart-item-padding-l $cart-item-padding-s;
   }
 
   &__img-wrapper{
@@ -24,7 +23,6 @@
     width: $cart-item-img-size-s;
     height: $cart-item-img-size-s;
     overflow: hidden;
-    border: 1px solid $border-color;
 
     @media (min-width: $min-width-m){
       width: $cart-item-img-size-l;

@@ -2,8 +2,8 @@
 
 .navbar{
   position: fixed;
-  right: 0;
-  top: -50vh;
+  left: -100vw;
+  top: 0;
   width: 100%;
   height:  $nav-mobile-height;;
   display: flex;
@@ -14,7 +14,7 @@
   transition: transform $transition-time;
 
   &--active{
-    transform: translateY(50vh);
+    transform: translatex(100vw);
 
     @media (min-width: $min-width-l){
       transform: translateY(0);
@@ -23,14 +23,15 @@
   }
 
   @media (min-width: $min-width-l){
-    position: fixed;
-    left: 0;
+    position: relative;
     top: 0;
-    justify-content: flex-start;
+    left: 0;
+    justify-content: flex-end;
     display: flex;
     flex-direction: row;
     align-items: center;
     height: $nav-desktop-height;
+    padding-right: 100px;
     background-color: $nav-bcg-color;
   }
 
@@ -43,6 +44,10 @@
     color: black;
     text-decoration: none;
     text-align: center;
+    font-family: $cuprum-ff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $nav-color;
     transition: color $transition-time;
     cursor: pointer;
 
@@ -58,9 +63,15 @@
 
   &__link--cart{
     position: fixed;
-    top: calc($ham-pos-top - 10px);
+    top: calc($ham-pos-top - 8px);
     right: $ham-pos-left;
-    z-index: 2;
+    z-index: 10;
+
+    @media (min-width: $min-width-l){
+      position: absolute;
+      top: $ham-pos-top;
+      right: $nav-horizontal-margin;
+    }
   }
 
   &__img{
@@ -77,7 +88,8 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: rgba(31, 31, 80, 0.781);
+    background-color: $cart-item-nr-color;
     color: white;
   }
 }
+

@@ -1,4 +1,5 @@
 import './CartContent.scss';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
@@ -70,13 +71,18 @@ const CartContent = () => {
 	));
 
 	const emptyMessage = (
-		<p className='cart-content__empty'>Shopping cart is empty</p>
+		<div className='cart-content__empty'>
+			<p className='cart-content__empty-message'>Shopping cart is empty</p>
+			<Link className='cart-content__go-to-shop' to='/'>
+				Go to shop
+			</Link>
+		</div>
 	);
 
 	return (
 		<section className='cart-content'>
 			<h2 className='cart-content__title'>Shopping cart</h2>
-			{productContent.length ? productContent : emptyMessage}
+			{cart.length ? productContent : emptyMessage}
 		</section>
 	);
 };
