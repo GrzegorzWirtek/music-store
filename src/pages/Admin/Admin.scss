@@ -1,0 +1,9 @@
+@import '../../sass/variables.scss';
+
+.admin{
+  min-height: calc(100vh - (2 * $nav-desktop-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

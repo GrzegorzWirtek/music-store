@@ -16,7 +16,13 @@ $min-width-l: 800px;
 $border-color: #d1d1d1;
 $border-color-dark: rgb(147, 147, 147);
 
-$btn-hover-color: #e8d7ff;
+$auth-max-width: 400px;
+$auth-padding-vertical: 40px;
+$auth-padding-horizontal: 40px;
+$auth-inputs-margin: 20px;
+$auth-error-color: rgb(184, 1, 1);
+
+$btn-hover-color: #f4ecff;
 
 $cart-content-max-width: 700px;
 
@@ -42,6 +48,12 @@ $ham-item-color: black;
 
 $logo-color: #d7b6ff;
 
+$modal-max-width: 600px;
+$modal-btn-max-width: 360px;
+$modal-title-margin-vertical: 30px;
+
+$nav-wrapper-bcg-color: white;
+$nav-wrapper-height: 120px;
 $nav-link-margin-left: 25px;
 $nav-link-margin-bottom-mobile: 20px;
 $nav-desktop-height: 130px;
@@ -74,6 +86,7 @@ $product-text-padding: 10px;
   font-weight: 700;
   letter-spacing: 2px;
   font-size: 0.9rem;
+  text-align: center;
   border: 1px solid $border-color-dark;
   background-color: transparent;
   outline: none;
@@ -83,4 +96,15 @@ $product-text-padding: 10px;
   &:hover{
     background-color: $btn-hover-color;
   }
+}
+
+@mixin input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: $auth-inputs-margin;
+  border: none;
+  border-bottom: 1px solid $border-color-dark;
+  outline: none;
+  font-family: $josefin-ff;
+  font-size: 1.2rem;
 }

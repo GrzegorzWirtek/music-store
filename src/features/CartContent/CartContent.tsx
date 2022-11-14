@@ -29,16 +29,16 @@ const CartContent = () => {
 		}
 	}, [dispatch, products.length]);
 
-	const handleRemoveProduct = (id: string) => {
-		dispatch(removeFromCart(id));
-	};
-
 	const handleIncreaseNrOfProducts = (id: string) => {
 		dispatch(increaseNrOfProducts(id));
 	};
 
 	const handleDecreaseNrOfProducts = (id: string) => {
 		dispatch(decreaseNrOfProducts(id));
+	};
+
+	const handleRemoveProduct = (id: string) => {
+		dispatch(removeFromCart(id));
 	};
 
 	const productsInTheCart = () => {

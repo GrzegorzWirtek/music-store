@@ -1,0 +1,24 @@
+@import '../../sass/variables.scss';
+
+.auth{
+  width: 100%;
+  max-width: $auth-max-width;
+  padding: $auth-padding-vertical $auth-padding-horizontal;
+
+  &__error{
+    color: $auth-error-color;
+    font-weight: 600;
+    font-family: $cuprum-ff;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  &__input{
+    @include input;
+  }
+
+  &__submit-btn{
+    @include button;
+    width: 100%;
+  }
+}

@@ -1,5 +1,15 @@
 @import '../../sass/variables.scss';
 
+.navbar-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-wrapper-height;
+  background-color: $nav-wrapper-bcg-color;
+  z-index: 3;
+}
+
 .navbar{
   position: fixed;
   left: -100vw;

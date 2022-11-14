@@ -1,3 +1,4 @@
+import './AdminPanel.scss';
 import { Link } from 'react-router-dom';
 
 const AdminPanel = () => {

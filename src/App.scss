@@ -5,8 +5,4 @@
   padding-top: $nav-desktop-height;
   max-width:$max-app-width;
   margin: 0 auto;
-
-  @media (min-width: $min-width-l){
-    padding-top: 0;
-  }
 }

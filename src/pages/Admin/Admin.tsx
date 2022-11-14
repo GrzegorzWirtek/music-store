@@ -1,3 +1,4 @@
+import './Admin.scss';
 import Auth from '../../features/Auth/Auth';
 import { useAppSelector } from '../../app/hooks';
 import Spinner from '../../components/Spinner/Spinner';
@@ -14,11 +15,10 @@ const Admin = () => {
 	const spinner = loading && !firstLoading ? <Spinner /> : null;
 
 	return (
-		<>
+		<section className='admin'>
 			{spinner}
-			<h2>Admin</h2>
 			{content}
-		</>
+		</section>
 	);
 };
 export default Admin;

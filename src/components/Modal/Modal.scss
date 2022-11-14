@@ -1,3 +1,5 @@
+@import '../../sass/variables.scss';
+
 .modal{
   position: fixed;
   top: 0;
@@ -10,21 +12,30 @@
   backdrop-filter: blur(8px);
 
   &__form{
+    @include box-shadow;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 90%;
+    max-width: $modal-max-width;
     padding: 20px;
-    border: 1px solid grey;
+    border: 1px solid $border-color;
     background-color: white;
   }
 
   &__title{
     flex-basis: 100%;
     text-align: center;
+    margin-top: $modal-title-margin-vertical;
+    margin-bottom:  $modal-title-margin-vertical;
+    font-family: $josefin-ff;
+    font-size: 1.6rem;
   }
 
   &__button{
-    margin: 0 10px;
-    cursor: pointer;
+    @include button;
+    padding: 12px 10px;
+    width: 100%;
+    max-width: $modal-btn-max-width;
   }
 }

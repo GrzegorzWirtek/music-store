@@ -44,8 +44,10 @@ const DeleteProduct = () => {
 			{modalVisible && (
 				<Modal
 					modalTitle='Are you sure you want to remove this product?'
-					clickYes={handleModalYes}
-					clickNo={handleModalNo}
+					clickOne={handleModalYes}
+					clickTwo={handleModalNo}
+					clickOneText='Yes'
+					clickTwoText='No'
 				/>
 			)}
 			<section className='delete-product'>

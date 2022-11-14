@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';
 
-import Contact from '../pages/Contact/Contact';
+import About from '../pages/About/About';
 import Shop from '../pages/Shop/Shop';
 import Admin from '../pages/Admin/Admin';
 import AddProduct from '../pages/Admin/AddProduct/AddProduct';
@@ -16,7 +16,7 @@ const Router = () => {
 	return (
 		<Routes>
 			<Route path='/' element={<Shop />} />
-			<Route path='/contact' element={<Contact />} />
+			<Route path='/about' element={<About />} />
 			<Route path='/admin' element={<Admin />} />
 			<Route
 				path='/admin/add-product'

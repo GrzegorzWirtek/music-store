@@ -1,3 +1,4 @@
+import './Auth.scss';
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { auth, AdminData } from './AuthSlice';
@@ -30,7 +31,13 @@ const Auth = () => {
 			{!loginBool && !firstLoading ? (
 				<p className='auth__error'>Błędny login</p>
 			) : null}
-			<input type='text' name='login' required className='auth__login' />
+			<input
+				type='text'
+				name='login'
+				required
+				placeholder='Login'
+				className='auth__login auth__input'
+			/>
 			{!passwordBool && !firstLoading ? (
 				<p className='auth__error'>Błędne hasło</p>
 			) : null}
@@ -38,9 +45,10 @@ const Auth = () => {
 				type='password'
 				name='password'
 				required
-				className='auth__password'
+				placeholder='Password'
+				className='auth__password auth__input'
 			/>
-			<button className='auth__submit-btn'>Submit</button>
+			<button className='auth__submit-btn'>Login</button>
 		</form>
 	);
 };
