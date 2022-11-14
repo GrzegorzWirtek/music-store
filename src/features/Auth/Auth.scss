@@ -6,11 +6,7 @@
   padding: $auth-padding-vertical $auth-padding-horizontal;
 
   &__error{
-    color: $auth-error-color;
-    font-weight: 600;
-    font-family: $cuprum-ff;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
+    @include error-message;
   }
 
   &__input{

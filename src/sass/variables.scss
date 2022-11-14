@@ -16,6 +16,8 @@ $min-width-l: 800px;
 $border-color: #d1d1d1;
 $border-color-dark: rgb(147, 147, 147);
 
+$about-max-width: 800px;
+
 $add-product-form-max-width: 500px;
 
 $admin-panel-max-width: 300px;
@@ -45,12 +47,16 @@ $cart-item-nr-color: #c67300c6;
 
 $delete-product-title-margin: 30px;
 
+$footer-height: 120px;
+
 $ham-pos-top: 50px;
 $ham-pos-left: 25px;
 $ham-width: 32px;
 $ham-height: 16px;
 $ham-item-height: 1.5px;
 $ham-item-color: black;
+
+$icon-width: 20px;
 
 $logo-color: #d7b6ff;
 
@@ -65,7 +71,7 @@ $nav-link-margin-bottom-mobile: 20px;
 $nav-desktop-height: 130px;
 $nav-mobile-height: 50vh;
 $nav-hover-color: black;
-$nav-color: grey;
+$nav-color: #808080;
 $nav-bcg-color: white;
 $nav-bcg-color-mobile: rgb(197, 241, 178);
 $nav-horizontal-margin: 40px;
@@ -113,4 +119,20 @@ $product-text-padding: 10px;
   outline: none;
   font-family: $josefin-ff;
   font-size: 1.2rem;
+}
+
+@mixin error-message {
+  color: $auth-error-color;
+  font-weight: 600;
+  font-family: $cuprum-ff;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+@mixin page-min-height {
+  min-height: calc(100vh - $nav-desktop-height - $footer-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

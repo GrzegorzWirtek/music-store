@@ -1,3 +1,4 @@
+import './Shop.scss';
 import Spinner from '../../components/Spinner/Spinner';
 import Products from '../../features/Products/Products';
 import { useAppSelector } from '../../app/hooks';
@@ -7,10 +8,10 @@ const Shop = () => {
 	const spinner = loading ? <Spinner /> : null;
 
 	return (
-		<>
+		<main className='shop'>
 			<Products />
 			{spinner}
-		</>
+		</main>
 	);
 };
 export default Shop;

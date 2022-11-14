@@ -1,3 +1,4 @@
+import './Cart.scss';
 import CartContent from '../../features/CartContent/CartContent';
 
 const Cart = () => {

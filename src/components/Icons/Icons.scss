@@ -1,0 +1,16 @@
+@import '../../sass/variables.scss';
+
+.icons{
+ display: flex;
+
+ &__icon{
+  width: $icon-width;
+  margin: 5px;
+  filter: invert(50%) sepia(17%) saturate(6%) hue-rotate(321deg) brightness(97%) contrast(84%);
+  transition: $transition-time;
+
+  &:hover{
+    filter: invert(0%) sepia(2%) saturate(7500%) hue-rotate(347deg) brightness(88%) contrast(102%);
+  }
+ }
+}

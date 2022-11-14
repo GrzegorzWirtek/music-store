@@ -130,26 +130,18 @@
     }
   }
 
-  &__remove-btn{
+
+  &__remove-img{
     grid-area: remove-btn;
     align-self: flex-start;
     justify-self: flex-end;
     height: $cart-item-remove-btn-size-s;
     margin-left: $cart-item-padding-xs;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 
     @media (min-width: $min-width-m){
       margin-left: $cart-item-padding-s;
       height: $cart-item-remove-btn-size-l;
     }
-  }
-
-  &__remove-img{
-    height: 100%;
   }
 }

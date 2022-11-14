@@ -1,7 +1,11 @@
+import './About.scss';
+import { aboutTextContent } from './AboutTextContent';
+
 const About = () => {
 	return (
-		<section>
-			<p>About</p>
+		<section className='about'>
+			<h2 className='about__title'>About application</h2>
+			<p className='about__text-content'>{aboutTextContent}</p>
 		</section>
 	);
 };

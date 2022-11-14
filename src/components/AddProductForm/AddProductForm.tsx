@@ -50,6 +50,7 @@ const AddProduct = () => {
 		};
 
 		const imageFile = target.image.files[0];
+		if (!imageFile) return setSizeMessage('Choose image');
 
 		if (imageFile.size > MAX_IMAGE_SIZE) {
 			return setSizeMessage('Image is too big. Maximum size is 150 KB');
@@ -118,7 +119,9 @@ const AddProduct = () => {
 					placeholder='Number of Products'
 					className='add-product-form__input'
 				/>
-				{sizeMessage && sizeMessage}
+				{sizeMessage && (
+					<p className='add-product-form__error'>{sizeMessage}</p>
+				)}
 				<p className='add-product-form__subtitle'>
 					Image format: PNG, max image size: 150 KB
 				</p>
@@ -131,7 +134,6 @@ const AddProduct = () => {
 					id='file-upload'
 					type='file'
 					name='image'
-					required
 					className='add-product-form__input add-product-form__input--file'
 				/>
 				<button type='submit' className='add-product-form__btn'>

@@ -57,4 +57,10 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  &__error{
+    @include error-message;
+    width: 100%;
+    text-align: center;
+  }
 }
