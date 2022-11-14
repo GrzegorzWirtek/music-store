@@ -7,6 +7,7 @@ const Auth = () => {
 	const dispatch = useAppDispatch();
 	const {
 		admin: { login: loginBool, password: passwordBool },
+		loading,
 		firstLoading,
 	} = useAppSelector((state) => state.admin);
 
@@ -28,7 +29,7 @@ const Auth = () => {
 
 	return (
 		<form className='auth' onSubmit={handleSubmit}>
-			{!loginBool && !firstLoading ? (
+			{!loginBool && !firstLoading && !loading ? (
 				<p className='auth__error'>Błędny login</p>
 			) : null}
 			<input
@@ -38,7 +39,7 @@ const Auth = () => {
 				placeholder='Login'
 				className='auth__login auth__input'
 			/>
-			{!passwordBool && !firstLoading ? (
+			{!passwordBool && !firstLoading && !loading ? (
 				<p className='auth__error'>Błędne hasło</p>
 			) : null}
 			<input

@@ -79,10 +79,22 @@ const CartContent = () => {
 		</div>
 	);
 
+	const summary = cart.reduce(
+		(acc, item) => item.productsInTheCart * item.price + acc,
+		0,
+	);
+
+	const summaryContent = (
+		<div className='cart-content__summary-wrapper'>
+			<p className='cart-content__summary'>Total: {summary}$</p>
+		</div>
+	);
+
 	return (
 		<section className='cart-content'>
 			<h2 className='cart-content__title'>Shopping cart</h2>
 			{cart.length ? productContent : emptyMessage}
+			{cart.length ? summaryContent : null}
 		</section>
 	);
 };

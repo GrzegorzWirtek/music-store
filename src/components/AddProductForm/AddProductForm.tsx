@@ -1,13 +1,17 @@
+import './AddProductForm.scss';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addProduct } from '../../features/Products/ProductsSlice';
 import Spinner from '../Spinner/Spinner';
+import Modal from '../../components/Modal/Modal';
 
 const MAX_IMAGE_SIZE = 150000;
 
 const AddProduct = () => {
 	const [sizeMessage, setSizeMessage] = useState<string | null>(null);
-	const [successMessage, setSuccessMesage] = useState<string | null>(null);
+	const [modalVisible, setModalVisible] = useState(false);
+	const navigate = useNavigate();
 
 	const dispatch = useAppDispatch();
 	const { loading, actionCompleted } = useAppSelector(
@@ -16,9 +20,17 @@ const AddProduct = () => {
 
 	useEffect(() => {
 		if (actionCompleted) {
-			setSuccessMesage('Added successfully');
+			setModalVisible(true);
 		}
 	}, [actionCompleted]);
+
+	const goToShop = () => {
+		navigate('/');
+	};
+
+	const addAnotherProduct = () => {
+		setModalVisible(false);
+	};
 
 	const toBase64 = (file: File) =>
 		new Promise((res, rej) => {
@@ -64,29 +76,68 @@ const AddProduct = () => {
 	};
 
 	const handleFocus = () => {
-		setSuccessMesage(null);
+		setModalVisible(false);
 	};
 
 	return (
 		<>
 			{loading && <Spinner />}
+			{modalVisible && (
+				<Modal
+					clickOne={goToShop}
+					clickTwo={addAnotherProduct}
+					modalTitle='Product added successfully'
+					clickOneText='Go to shop'
+					clickTwoText='Add another'
+				/>
+			)}
 			<form
 				className='add-product-form'
 				onFocus={handleFocus}
 				onSubmit={handleSubmit}>
-				<input type='text' name='name' required placeholder='Product name' />
-				<input type='number' name='price' required placeholder='Price' />
+				<h2 className='add-product-form__title'>Add product</h2>
+
+				<input
+					type='text'
+					name='name'
+					required
+					placeholder='Product name'
+					className='add-product-form__input add-product-form__input--name'
+				/>
+				<input
+					type='number'
+					name='price'
+					required
+					placeholder='Price'
+					className='add-product-form__input'
+				/>
 				<input
 					type='number'
 					name='productsInTheShop'
 					required
 					placeholder='Number of Products'
+					className='add-product-form__input'
 				/>
 				{sizeMessage && sizeMessage}
-				<input type='file' name='image' required />
-				<button type='submit'>Submit</button>
+				<p className='add-product-form__subtitle'>
+					Image format: PNG, max image size: 150 KB
+				</p>
+				<label
+					htmlFor='file-upload'
+					className='add-product-form__input--file-label'>
+					Upload image
+				</label>
+				<input
+					id='file-upload'
+					type='file'
+					name='image'
+					required
+					className='add-product-form__input add-product-form__input--file'
+				/>
+				<button type='submit' className='add-product-form__btn'>
+					Submit
+				</button>
 			</form>
-			{successMessage && <p>{successMessage}</p>}
 		</>
 	);
 };

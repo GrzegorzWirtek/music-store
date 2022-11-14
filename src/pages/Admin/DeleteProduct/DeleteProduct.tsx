@@ -1,3 +1,4 @@
+import './DeleteProduct.scss';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import Modal from '../../../components/Modal/Modal';
@@ -51,7 +52,7 @@ const DeleteProduct = () => {
 				/>
 			)}
 			<section className='delete-product'>
-				<p>Delete</p>
+				<h2 className='delete-product__title'>Delete products</h2>
 				{products.map((item) => (
 					<Product
 						key={item._id}

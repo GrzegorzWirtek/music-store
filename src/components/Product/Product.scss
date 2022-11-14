@@ -3,7 +3,7 @@
 .product{
   @include box-shadow;
   width: 90vw;
-  margin: $product-space-between auto;
+  margin: $product-space-between;
   max-width: $product-max-width;
   display: flex;
   flex-direction: column;

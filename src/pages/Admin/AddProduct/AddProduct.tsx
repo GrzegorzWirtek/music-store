@@ -1,3 +1,4 @@
+import './AddProduct.scss';
 import AddProductForm from '../../../components/AddProductForm/AddProductForm';
 
 const AddProduct = () => {

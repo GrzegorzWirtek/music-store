@@ -1,0 +1,60 @@
+@import '../../sass/variables.scss';
+
+.add-product-form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $add-product-form-max-width;
+  padding: 0 10px;
+
+  &__title{
+    flex-basis: 100%;
+    text-align: center;
+    font-family: $josefin-ff;
+    font-size: 2rem;
+    margin: $delete-product-title-margin auto;
+  }
+
+  &__subtitle{
+    flex-basis: 100%;
+    margin-top: 20px;
+    font-family: $josefin-ff;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  &__input{
+    @include input;
+    
+    @media(min-width: $min-width-m){
+       flex-basis: 48%;
+    }
+  }
+
+  &__input--name{
+    flex-basis: 100%;
+  }
+
+  &__input--file{
+    display: none;
+  }
+
+  &__input--file-label{
+    @include button;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &__btn{
+    @include button;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

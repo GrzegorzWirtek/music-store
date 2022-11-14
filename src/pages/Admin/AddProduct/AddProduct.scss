@@ -1,0 +1,9 @@
+@import '../../../sass/variables.scss';
+
+.add-product{
+  min-height: calc(100vh - (2 * $nav-desktop-height));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

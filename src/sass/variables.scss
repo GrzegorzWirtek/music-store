@@ -16,6 +16,10 @@ $min-width-l: 800px;
 $border-color: #d1d1d1;
 $border-color-dark: rgb(147, 147, 147);
 
+$add-product-form-max-width: 500px;
+
+$admin-panel-max-width: 300px;
+
 $auth-max-width: 400px;
 $auth-padding-vertical: 40px;
 $auth-padding-horizontal: 40px;
@@ -38,6 +42,8 @@ $cart-item-margin-m: 16px;
 $cart-item-remove-btn-size-s: 22px;
 $cart-item-remove-btn-size-l: 30px;
 $cart-item-nr-color: #c67300c6;
+
+$delete-product-title-margin: 30px;
 
 $ham-pos-top: 50px;
 $ham-pos-left: 25px;
@@ -100,7 +106,7 @@ $product-text-padding: 10px;
 
 @mixin input {
   width: 100%;
-  padding: 5px;
+  padding: 7px 5px;
   margin-bottom: $auth-inputs-margin;
   border: none;
   border-bottom: 1px solid $border-color-dark;
