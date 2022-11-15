@@ -15,7 +15,8 @@
   left: -100vw;
   top: 0;
   width: 100%;
-  height:  $nav-mobile-height;;
+  padding-top: $nav-padding-mobile-top;
+  padding-bottom: $nav-padding-mobile-bottom;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,6 +30,8 @@
     @media (min-width: $min-width-l){
       transform: translateY(0);
       transition: transform 0s;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
@@ -37,6 +40,7 @@
     top: 0;
     left: 0;
     justify-content: flex-end;
+    padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;

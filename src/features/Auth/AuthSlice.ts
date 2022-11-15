@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { MAIN_URL } from '../api';
 
-export const ADMIN_API_URL = 'http://localhost:3001/admin';
+export const ADMIN_API_URL = `${MAIN_URL}/admin`;
 
 export type AdminData = {
 	login: string;

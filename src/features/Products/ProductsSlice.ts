@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { MAIN_URL } from '../api';
 
-export const PRUDUCTS_API_URL = 'http://localhost:3001/products';
+export const PRUDUCTS_API_URL = `${MAIN_URL}/products`;
 
 export type NewProduct = {
 	name: string;
