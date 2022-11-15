@@ -13,7 +13,7 @@ Website was created as part of architecture design using Redux-Toolkit. The user
 Project is created with:
 
 - **react** version 18.2.0
-- **typescript** 4.8.4
+- **typescript** version 4.8.4
 - **react-dom** version 18.2.0
 - **react-router-dom** version 6.4.2
 - **react-redux** version 8.0.4
