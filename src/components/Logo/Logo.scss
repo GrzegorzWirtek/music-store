@@ -6,6 +6,7 @@
   left: 50%;
   width: 50px;
   transform: translate(-50%, 7px);
+  cursor: pointer;
   z-index: 3;
   
   @media (min-width: $min-width-l){

@@ -132,6 +132,7 @@ const AddProduct = () => {
 				</label>
 				<input
 					id='file-upload'
+					accept='image/png'
 					type='file'
 					name='image'
 					className='add-product-form__input add-product-form__input--file'
