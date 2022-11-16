@@ -6,9 +6,9 @@ import { addProduct } from '../../features/Products/ProductsSlice';
 import Spinner from '../Spinner/Spinner';
 import Modal from '../../components/Modal/Modal';
 
-const MAX_IMAGE_SIZE = 150000;
-
 const AddProduct = () => {
+	const MAX_IMAGE_SIZE = 150000;
+
 	const [sizeMessage, setSizeMessage] = useState<string | null>(null);
 	const [modalVisible, setModalVisible] = useState(false);
 	const navigate = useNavigate();
@@ -53,7 +53,9 @@ const AddProduct = () => {
 		if (!imageFile) return setSizeMessage('Choose image');
 
 		if (imageFile.size > MAX_IMAGE_SIZE) {
-			return setSizeMessage('Image is too big. Maximum size is 150 KB');
+			return setSizeMessage(
+				`Image is too big. Maximum size is ${MAX_IMAGE_SIZE / 1000} KB`,
+			);
 		} else {
 			const imageBase64 = (await toBase64(imageFile)) as string;
 			const name = target.name.value;
@@ -123,7 +125,7 @@ const AddProduct = () => {
 					<p className='add-product-form__error'>{sizeMessage}</p>
 				)}
 				<p className='add-product-form__subtitle'>
-					Image format: PNG, max image size: 150 KB
+					Image format: PNG, max image size: {MAX_IMAGE_SIZE / 1000} KB
 				</p>
 				<label
 					htmlFor='file-upload'
