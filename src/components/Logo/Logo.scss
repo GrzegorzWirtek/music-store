@@ -4,20 +4,14 @@
   position: absolute;
   top: 24px;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  width: 82px;
-  padding: 7px 7px 5px 7px;
-  font-family: $gluten-ff;
-  background-color: $logo-bcg-color;
-  color: $logo-color;
-  border-radius: 7px;
-  line-height: 1;
+  width: 50px;
+  transform: translate(-50%, 7px);
   z-index: 3;
-
   
   @media (min-width: $min-width-l){
     top: 20px;
-    left: 70px;
+    left: $nav-horizontal-margin;
+    width: 80px;
+    transform: translateX(0);
   }
 }

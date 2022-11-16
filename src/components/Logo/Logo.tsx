@@ -1,6 +1,8 @@
 import './Logo.scss';
 
 const Logo = () => {
-	return <h1 className='logo'>Your Music Store</h1>;
+	return (
+		<img src='music-store-logo.png' alt='Music store logo' className='logo' />
+	);
 };
 export default Logo;
