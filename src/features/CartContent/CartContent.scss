@@ -4,6 +4,7 @@
   @include box-shadow;
   width: 90vw;
   max-width: $cart-content-max-width;
+  margin: 0 auto;
 
   &__title{
     font-family: $josefin-ff;

@@ -1,0 +1,44 @@
+@import '../../sass/variables.scss';
+
+.search{
+  display: flex;
+  justify-content: center;
+  flex-basis: 90vw;
+
+  &__input{
+    width: 100%;
+    max-width: $search-input-max-width;
+    height: $search-input-height;
+    padding: 7px 5px;
+    border: 1px solid $border-color-dark;
+    outline: none;
+    font-family: $josefin-ff;
+    font-size: 1.2rem;
+
+    &:focus{
+      @include box-shadow-inset;
+    }
+  }
+
+  &__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $search-input-height;
+    height: $search-input-height;
+    border: 1px solid $border-color-dark;
+    border-left: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $search-input-bcg-hover;
+    }
+  }
+
+  &__svg{
+    height: 80%;
+    filter: $search-svg-color;
+  }
+}

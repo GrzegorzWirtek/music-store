@@ -30,7 +30,7 @@ const Auth = () => {
 	return (
 		<form className='auth' onSubmit={handleSubmit}>
 			{!loginBool && !firstLoading && !loading ? (
-				<p className='auth__error'>Błędny login</p>
+				<p className='auth__error'>Incorrect login</p>
 			) : null}
 			<input
 				type='text'
@@ -40,7 +40,7 @@ const Auth = () => {
 				className='auth__login auth__input'
 			/>
 			{!passwordBool && !firstLoading && !loading ? (
-				<p className='auth__error'>Błędne hasło</p>
+				<p className='auth__error'>Incorrect password</p>
 			) : null}
 			<input
 				type='password'

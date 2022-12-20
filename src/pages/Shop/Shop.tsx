@@ -5,7 +5,7 @@ import { useAppSelector } from '../../app/hooks';
 
 const Shop = () => {
 	const { loading } = useAppSelector((state) => state.products);
-	const spinner = loading ? <Spinner /> : null;
+	const spinner = loading && <Spinner />;
 
 	return (
 		<main className='shop'>
