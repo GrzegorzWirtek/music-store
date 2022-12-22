@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './Search.scss';
 
 type SearchProps = {
@@ -23,4 +24,4 @@ const Search = ({ searchedElement, search, cleanSearch }: SearchProps) => {
 	);
 };
 
-export default Search;
+export default memo(Search);

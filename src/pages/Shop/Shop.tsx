@@ -9,7 +9,7 @@ const Shop = () => {
 
 	return (
 		<main className='shop'>
-			<Products />
+			{!loading && <Products />}
 			{spinner}
 		</main>
 	);

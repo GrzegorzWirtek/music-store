@@ -1,14 +1,15 @@
 import './Products.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useCallback, useState, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import Product from '../../components/Product/Product';
 import { addToCart, ProductInTheCart } from '../CartContent/CartContentSlice';
 import { fetchProducts } from './ProductsSlice';
 import Modal from '../../components/Modal/Modal';
+import Product from '../../components/Product/Product';
 import Search from '../../components/Search/Search';
 
 const Products = () => {
+	console.log('products re-render');
 	const dispatch = useAppDispatch();
 	const { products } = useAppSelector((state) => state.products);
 	const { loading } = useAppSelector((state) => state.products);
@@ -22,14 +23,14 @@ const Products = () => {
 		}
 	}, [dispatch, products.length]);
 
-	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		setSearchedElement(e.target.value);
-	};
+	}, []);
 
-	const handleCleanSearch = () => {
+	const handleCleanSearch = useCallback(() => {
 		setSearchedElement('');
-	};
+	}, []);
 
 	const handleAddToCart = (product: ProductInTheCart) => {
 		dispatch(addToCart(product));
@@ -81,4 +82,4 @@ const Products = () => {
 		</section>
 	);
 };
-export default Products;
+export default memo(Products);
