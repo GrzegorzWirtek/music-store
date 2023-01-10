@@ -7,9 +7,9 @@ import { fetchProducts } from './ProductsSlice';
 import Modal from '../../components/Modal/Modal';
 import Product from '../../components/Product/Product';
 import Search from '../../components/Search/Search';
+import NoResults from '../../components/NoResults/NoResults';
 
 const Products = () => {
-	console.log('products re-render');
 	const dispatch = useAppDispatch();
 	const { products } = useAppSelector((state) => state.products);
 	const { loading } = useAppSelector((state) => state.products);
@@ -68,7 +68,7 @@ const Products = () => {
 					cleanSearch={handleCleanSearch}
 				/>
 			)}
-			{searchedElements}
+			{searchedElements.length ? searchedElements : <NoResults />}
 
 			{modalVisible && (
 				<Modal
