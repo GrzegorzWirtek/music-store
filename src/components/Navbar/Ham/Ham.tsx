@@ -8,6 +8,7 @@ interface propsType {
 const Ham: React.FC<propsType> = ({ hamActive, toggleHam }) => {
 	return (
 		<div
+			data-testid='ham'
 			className={`ham ${hamActive ? 'ham--active' : ''}`}
 			onClick={toggleHam}>
 			<div className='ham__item'></div>
