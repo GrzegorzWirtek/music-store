@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
 
   @media(min-width: $min-width-s){
     width: $product-max-width;

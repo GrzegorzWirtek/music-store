@@ -3,6 +3,7 @@ import { useAppSelector } from '../app/hooks';
 
 import About from '../pages/About/About';
 import Shop from '../pages/Shop/Shop';
+import ProductInfo from '../pages/ProductInfo/ProductInfo';
 import Admin from '../pages/Admin/Admin';
 import AddProduct from '../pages/Admin/AddProduct/AddProduct';
 import DeleteProduct from '../pages/Admin/DeleteProduct/DeleteProduct';
@@ -13,9 +14,15 @@ const Router = () => {
 		admin: { login, password },
 	} = useAppSelector((state) => state.admin);
 
+	const { products } = useAppSelector((state) => state.products);
+
 	return (
 		<Routes>
 			<Route path='/' element={<Shop />} />
+			<Route
+				path='/product/:id'
+				element={products.length ? <ProductInfo /> : <Navigate to='/' />}
+			/>
 			<Route path='/about' element={<About />} />
 			<Route path='/admin' element={<Admin />} />
 			<Route

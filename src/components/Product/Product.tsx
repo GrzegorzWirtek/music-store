@@ -1,4 +1,5 @@
 import './Product.scss';
+import { useNavigate } from 'react-router-dom';
 import { Product as ProductType } from '../../features/Products/ProductsSlice';
 import { ProductInTheCart } from '../../features/CartContent/CartContentSlice';
 
@@ -17,8 +18,19 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 		productsInTheShop,
 		imageBase64,
 	} = product;
+
+	const navigate = useNavigate();
+
+	const handleGoToProduct = (
+		e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+		_id: string,
+	) => {
+		if (e.target instanceof HTMLButtonElement) return;
+		navigate(`product/${_id}`);
+	};
+
 	return (
-		<div className='product'>
+		<div className='product' onClick={(e) => handleGoToProduct(e, _id)}>
 			<div className='product__img-wrapper'>
 				<img src={imageBase64} alt={name} className='product__img' />
 			</div>
