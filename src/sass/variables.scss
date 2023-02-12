@@ -77,16 +77,21 @@ $nav-horizontal-margin: 40px;
 
 $no-results-margin-top: 50px;
 
+$products-gap-mobile: 20px;
+$products-gap: 40px;
+$product-width: 43vw;
 $product-max-width: 360px;
 $product-border-color: grey;
+$product-margin-mobile-s: 4px;
 $product-margin-s: 12px;
 $product-margin-m: 18px;
 $product-margin-l: 25px;
 $product-space-between: 20px;
 $product-text-padding: 10px;
-
+$product-font-size-mobile: 0.8rem;
+$product-font-size: 1rem;
 $search-input-height: 40px;
-$search-input-max-width: 300px;
+$search-input-max-width: 350px;
 $search-input-bcg-hover: rgb(232, 232, 232);
 $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightness(95%) contrast(88%);
 
@@ -103,7 +108,7 @@ $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightn
 }
 
 @mixin button {
-  padding: 12px 70px;
+  padding: 10px 20px;
   margin-bottom: $product-margin-l;
   font-family: $cuprum-ff;
   text-transform: uppercase;
@@ -116,6 +121,10 @@ $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightn
   outline: none;
   cursor: pointer;
   transition: $transition-time;
+
+  @media(min-width: $min-width-l){
+    padding: 12px 70px;
+  }
 
   &:hover{
     background-color: $btn-hover-color;

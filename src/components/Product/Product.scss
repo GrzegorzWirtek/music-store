@@ -2,8 +2,7 @@
 
 .product{
   @include box-shadow;
-  width: 90vw;
-  margin: $product-space-between;
+  width: $product-width;
   max-width: $product-max-width;
   display: flex;
   flex-direction: column;
@@ -11,20 +10,12 @@
   overflow: hidden;
   cursor: pointer;
 
-  @media(min-width: $min-width-s){
-    width: $product-max-width;
-  }
-
-  @media(min-width: $min-width-l){
-    margin: $product-space-between;
-  }
-
   &__img-wrapper{
-    width: 90vw;
-    height: 90vw;
+    width: $product-width;
+    height: $product-width;
     overflow: hidden;
 
-    @media(min-width: $min-width-s){
+    @media(min-width: $min-width-l){
       height: $product-max-width;;
       width: $product-max-width;
     }
@@ -37,24 +28,36 @@
   }
 
   &__name{
-    margin-top: $product-margin-m;
-    margin-bottom: $product-margin-s;
+    margin-bottom: $product-margin-mobile-s;
     padding: 0 $product-text-padding;
     text-align: center;
+    font-size: $product-font-size-mobile;
     font-family: $josefin-ff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    @media(min-width: $min-width-l){
+      margin-top: $product-margin-m;
+      margin-bottom: $product-margin-s;
+      font-size: $product-font-size;
+    }
   }
 
   &__price{
-    margin-bottom: $product-margin-l;
+    margin-bottom: $product-margin-mobile-s;
     padding: 0 $product-text-padding;
     font-family: $josefin-ff;
+    font-size: $product-font-size-mobile;
     text-align: center;
     font-weight: 600;
     text-transform: uppercase;
     flex-grow: 1;
+
+    @media(min-width: $min-width-l){
+      margin-bottom: $product-margin-l;
+      font-size: $product-font-size;
+    }
   }
 
   &__in-the-shop{
@@ -62,6 +65,11 @@
     padding: 0 $product-text-padding;
     text-align: center;
     font-family: $josefin-ff;
+    font-size: $product-font-size-mobile;
+
+    @media(min-width: $min-width-l){
+      font-size: $product-font-size;
+    }
   }
 
   &__btn{
