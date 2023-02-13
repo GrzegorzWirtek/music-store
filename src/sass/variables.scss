@@ -48,6 +48,7 @@ $cart-item-nr-color: #5162e2;
 $delete-product-title-margin: 30px;
 
 $footer-height: 120px;
+$footer-margin-top: 40px;
 
 $ham-pos-top: 50px;
 $ham-pos-left: 25px;
@@ -80,6 +81,7 @@ $no-results-margin-top: 50px;
 $products-gap-mobile: 20px;
 $products-gap: 40px;
 $product-width: 43vw;
+$product-min-width: 160px;
 $product-max-width: 360px;
 $product-border-color: grey;
 $product-margin-mobile-s: 4px;
@@ -108,7 +110,7 @@ $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightn
 }
 
 @mixin button {
-  padding: 10px 20px;
+  padding: 12px 70px;
   margin-bottom: $product-margin-l;
   font-family: $cuprum-ff;
   text-transform: uppercase;
@@ -121,10 +123,6 @@ $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightn
   outline: none;
   cursor: pointer;
   transition: $transition-time;
-
-  @media(min-width: $min-width-l){
-    padding: 12px 70px;
-  }
 
   &:hover{
     background-color: $btn-hover-color;

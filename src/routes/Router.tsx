@@ -14,15 +14,10 @@ const Router = () => {
 		admin: { login, password },
 	} = useAppSelector((state) => state.admin);
 
-	const { products } = useAppSelector((state) => state.products);
-
 	return (
 		<Routes>
 			<Route path='/' element={<Shop />} />
-			<Route
-				path='/product/:id'
-				element={products.length ? <ProductInfo /> : <Navigate to='/' />}
-			/>
+			<Route path='/product/:id' element={<ProductInfo />} />
 			<Route path='/about' element={<About />} />
 			<Route path='/admin' element={<Admin />} />
 			<Route

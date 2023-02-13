@@ -25,7 +25,8 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 		e: React.MouseEvent<HTMLDivElement, MouseEvent>,
 		_id: string,
 	) => {
-		if (e.target instanceof HTMLButtonElement) return;
+		if (e.target instanceof HTMLButtonElement)
+			return click({ _id, name, price, productsInTheCart, productsInTheShop });
 		navigate(`product/${_id}`);
 	};
 
@@ -40,9 +41,9 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 				Number of products available: {productsInTheShop}
 			</p>
 			<button
-				onClick={() =>
-					click({ _id, name, price, productsInTheCart, productsInTheShop })
-				}
+				// onClick={() =>
+				// 	click({ _id, name, price, productsInTheCart, productsInTheShop })
+				// }
 				className='product__btn'>
 				{buttonDescr}
 			</button>
