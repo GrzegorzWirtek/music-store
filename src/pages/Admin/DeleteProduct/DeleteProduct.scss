@@ -4,6 +4,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: $products-gap-mobile;
+
+  @media(min-width: $min-width-l){
+    gap: $products-gap;
+  }
 
   &__title{
     flex-basis: 100%;
