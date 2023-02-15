@@ -1,0 +1,78 @@
+@import '../../sass/variables.scss';
+
+.product-info{
+  @include page-min-height;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  max-width: $product-max-width;
+  padding-top: $product-info-padding-top-mobile;
+  padding-left: $products-gap-mobile;
+  margin: 0 auto;
+
+  @media (min-width: $min-width-l){
+    padding-top: $product-info-padding-top;
+    max-width: $product-info-max-width;
+  }
+
+  &__img{
+    @include box-shadow;
+    max-width: $product-max-width;
+    min-width: $product-min-width;
+    padding: 5px;
+    margin: 0 $products-gap-mobile $products-gap-mobile 0;
+  }
+
+  &__text-content{
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: $products-gap-mobile;
+    padding-right:  $products-gap-mobile;
+
+    @media (min-width: $min-width-l){
+      flex-basis: auto;
+    }
+  }
+
+  &__name{
+    align-self: flex-start;
+    margin-bottom: $product-margin-s;
+    font-size: $product-font-size;
+    font-family: $josefin-ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__price{
+    align-self: flex-start;
+    margin-bottom: $product-margin-s;
+    font-size: $product-font-size;
+    font-family: $josefin-ff;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__in-the-shop{
+    align-self: flex-start;
+    margin-bottom: $product-margin-s;
+    font-family: $josefin-ff;
+    font-size: $product-font-size;
+    flex-grow: 1;
+  }
+
+  &__btn{
+    @include button;
+    margin-bottom: 0;
+    padding: 10px 20px;
+
+    @media (min-width: $min-width-l){
+      align-self: flex-start;
+      padding: 12px 70px;
+    }
+  }
+}

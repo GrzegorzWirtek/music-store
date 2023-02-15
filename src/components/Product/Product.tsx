@@ -2,6 +2,7 @@ import './Product.scss';
 import { useNavigate } from 'react-router-dom';
 import { Product as ProductType } from '../../features/Products/ProductsSlice';
 import { ProductInTheCart } from '../../features/CartContent/CartContentSlice';
+import { useAppSelector } from '../../app/hooks';
 
 type ProductProps = {
 	product: ProductType;
@@ -19,6 +20,10 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 		imageBase64,
 	} = product;
 
+	const {
+		admin: { login, password },
+	} = useAppSelector((state) => state.admin);
+
 	const navigate = useNavigate();
 
 	const handleGoToProduct = (
@@ -27,6 +32,7 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 	) => {
 		if (e.target instanceof HTMLButtonElement)
 			return click({ _id, name, price, productsInTheCart, productsInTheShop });
+		else if (login && password) return;
 		navigate(`product/${_id}`);
 	};
 
@@ -40,13 +46,7 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 			<p className='product__in-the-shop'>
 				Number of products available: {productsInTheShop}
 			</p>
-			<button
-				// onClick={() =>
-				// 	click({ _id, name, price, productsInTheCart, productsInTheShop })
-				// }
-				className='product__btn'>
-				{buttonDescr}
-			</button>
+			<button className='product__btn'>{buttonDescr}</button>
 		</div>
 	);
 };

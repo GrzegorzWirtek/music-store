@@ -16,6 +16,8 @@ $min-width-l: 800px;
 $border-color: #d1d1d1;
 $border-color-dark: rgb(147, 147, 147);
 
+$btn-mobile-margin: 6px;
+
 $about-max-width: 800px;
 
 $add-product-form-max-width: 500px;
@@ -92,6 +94,11 @@ $product-space-between: 20px;
 $product-text-padding: 10px;
 $product-font-size-mobile: 0.8rem;
 $product-font-size: 1rem;
+
+$product-info-max-width: 800px;
+$product-info-padding-top-mobile: 30px;
+$product-info-padding-top: 70px;
+
 $search-input-height: 40px;
 $search-input-max-width: 350px;
 $search-input-bcg-hover: rgb(232, 232, 232);
@@ -149,5 +156,5 @@ $search-svg-color: invert(53%) sepia(3%) saturate(17%) hue-rotate(19deg) brightn
 }
 
 @mixin page-min-height {
-  min-height: calc(100vh - $nav-desktop-height - $footer-height);
+  min-height: calc(100vh - $nav-desktop-height - $footer-height - $footer-margin-top);
 }

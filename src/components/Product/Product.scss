@@ -76,6 +76,8 @@
   &__btn{
     @include button;
     padding: 10px 20px;
+    margin-left: $btn-mobile-margin;
+    margin-right: $btn-mobile-margin;
 
     @media(min-width: $min-width-l){
       padding: 12px 70px;
