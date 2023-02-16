@@ -16,7 +16,7 @@ const ProductInfo = () => {
 	const product = useGetProductById(id!);
 	if (!product) return <Navigate to='/' />;
 
-	const { name, imageBase64, price, productsInTheShop } = product;
+	const { name, description, imageBase64, price, productsInTheShop } = product;
 
 	const handleAddToCart = () => {
 		dispatch(addToCart(product));
@@ -38,6 +38,7 @@ const ProductInfo = () => {
 			<div className='product-info__text-content'>
 				<h3 className='product-info__name'>{name}</h3>
 				<p className='product-info__price'>{price}$</p>
+				<p className='product-info__description'>{description}</p>
 				<p className='product-info__in-the-shop'>
 					Number of products available: {productsInTheShop}
 				</p>

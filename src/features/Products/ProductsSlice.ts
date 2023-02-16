@@ -15,6 +15,7 @@ export type NewProduct = {
 export type Product = NewProduct & {
 	_id: string;
 	name: string;
+	description: string;
 	price: number;
 	productsInTheCart: number;
 	productsInTheShop: number;

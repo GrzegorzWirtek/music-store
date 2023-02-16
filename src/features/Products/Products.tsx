@@ -46,6 +46,8 @@ const Products = () => {
 		setModalVisible(false);
 	};
 
+	console.log(products);
+
 	const searchedElements = products
 		.filter((item) =>
 			item.name.toLowerCase().includes(searchedElement.toLowerCase()),

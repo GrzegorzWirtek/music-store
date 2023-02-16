@@ -7,6 +7,7 @@ const clickhHandler = jest.fn();
 const ProductType = {
 	_id: 'product id',
 	name: 'product name',
+	description: 'product description',
 	price: 555,
 	productsInTheCart: 10,
 	productsInTheShop: 10,
