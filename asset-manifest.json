@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/music-store/static/css/main.5b130b36.css",
-    "main.js": "/music-store/static/js/main.860a728f.js",
+    "main.css": "/music-store/static/css/main.cd32467d.css",
+    "main.js": "/music-store/static/js/main.9c84f899.js",
     "index.html": "/music-store/index.html",
-    "main.5b130b36.css.map": "/music-store/static/css/main.5b130b36.css.map",
-    "main.860a728f.js.map": "/music-store/static/js/main.860a728f.js.map"
+    "main.cd32467d.css.map": "/music-store/static/css/main.cd32467d.css.map",
+    "main.9c84f899.js.map": "/music-store/static/js/main.9c84f899.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b130b36.css",
-    "static/js/main.860a728f.js"
+    "static/css/main.cd32467d.css",
+    "static/js/main.9c84f899.js"
   ]
 }
