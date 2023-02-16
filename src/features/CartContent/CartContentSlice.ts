@@ -17,6 +17,7 @@ const cartSlice = createSlice({
 	initialState: initialCartState,
 	reducers: {
 		addToCart: (state, action: PayloadAction<ProductInTheCart>) => {
+			console.log('działa console');
 			const id = action.payload._id;
 			const index = state.cart.findIndex((item) => item._id === id);
 			if (index < 0) {

@@ -2,7 +2,10 @@ import './AddProductForm.scss';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { addProduct } from '../../features/Products/ProductsSlice';
+import {
+	addProduct,
+	resetActionCompleted,
+} from '../../features/Products/ProductsSlice';
 import Spinner from '../Spinner/Spinner';
 import Modal from '../../components/Modal/Modal';
 
@@ -22,14 +25,16 @@ const AddProduct = () => {
 		if (actionCompleted) {
 			setModalVisible(true);
 		}
-	}, [actionCompleted]);
+	}, [actionCompleted, modalVisible]);
 
 	const goToShop = () => {
+		dispatch(resetActionCompleted());
 		navigate('/');
 	};
 
 	const addAnotherProduct = () => {
 		setModalVisible(false);
+		dispatch(resetActionCompleted());
 	};
 
 	const toBase64 = (file: File) =>
@@ -45,6 +50,7 @@ const AddProduct = () => {
 		const target = e.target as typeof e.target & {
 			name: { value: string };
 			price: { value: string };
+			description: { value: string };
 			productsInTheShop: { value: string };
 			image: { files: File[] };
 		};
@@ -60,6 +66,7 @@ const AddProduct = () => {
 			const imageBase64 = (await toBase64(imageFile)) as string;
 			const name = target.name.value;
 			const price = parseInt(target.price.value);
+			const description = target.description.value;
 			const productsInTheShop = parseInt(target.productsInTheShop.value);
 
 			target.name.value = '';
@@ -71,6 +78,7 @@ const AddProduct = () => {
 					name,
 					price,
 					productsInTheShop,
+					description,
 					productsInTheCart: 1,
 					imageBase64,
 				}),
@@ -121,6 +129,13 @@ const AddProduct = () => {
 					placeholder='Number of Products'
 					className='add-product-form__input'
 				/>
+				<textarea
+					name='description'
+					required
+					placeholder='Description'
+					rows={6}
+					className='add-product-form__textarea'></textarea>
+
 				{sizeMessage && (
 					<p className='add-product-form__error'>{sizeMessage}</p>
 				)}

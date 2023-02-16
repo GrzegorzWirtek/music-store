@@ -7,6 +7,7 @@ export const PRUDUCTS_API_URL = `${MAIN_URL}/products`;
 export type NewProduct = {
 	name: string;
 	price: number;
+	description: string;
 	productsInTheCart: number;
 	productsInTheShop: number;
 	imageBase64: string;
@@ -15,7 +16,6 @@ export type NewProduct = {
 export type Product = NewProduct & {
 	_id: string;
 	name: string;
-	description: string;
 	price: number;
 	productsInTheCart: number;
 	productsInTheShop: number;
@@ -64,7 +64,11 @@ export const deleteProduct = createAsyncThunk(
 const productsSlice = createSlice({
 	name: 'products',
 	initialState,
-	reducers: {},
+	reducers: {
+		resetActionCompleted: (state) => {
+			state.actionCompleted = false;
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchProducts.pending, (state) => {
 			state.loading = true;
@@ -117,3 +121,5 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
+export const { resetActionCompleted } = productsSlice.actions;
+export {};

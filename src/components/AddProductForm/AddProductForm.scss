@@ -32,6 +32,11 @@
     }
   }
 
+  &__textarea{
+    @include input;
+    resize: none;
+  }
+
   &__input--name{
     flex-basis: 100%;
   }
