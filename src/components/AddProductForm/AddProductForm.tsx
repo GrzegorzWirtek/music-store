@@ -71,6 +71,7 @@ const AddProduct = () => {
 
 			target.name.value = '';
 			target.price.value = '';
+			target.description.value = '';
 			target.productsInTheShop.value = '';
 
 			dispatch(
