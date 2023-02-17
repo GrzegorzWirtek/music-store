@@ -1,8 +1,7 @@
 import './Product.scss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Product as ProductType } from '../../features/Products/ProductsSlice';
 import { ProductInTheCart } from '../../features/CartContent/CartContentSlice';
-import { useAppSelector } from '../../app/hooks';
 
 type ProductProps = {
 	product: ProductType;
@@ -20,9 +19,7 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 		imageBase64,
 	} = product;
 
-	const {
-		admin: { login, password },
-	} = useAppSelector((state) => state.admin);
+	const { pathname } = useLocation();
 
 	const navigate = useNavigate();
 
@@ -32,7 +29,7 @@ const Product = ({ product, click, buttonDescr }: ProductProps) => {
 	) => {
 		if (e.target instanceof HTMLButtonElement)
 			return click({ _id, name, price, productsInTheCart, productsInTheShop });
-		else if (login && password) return;
+		else if (pathname.includes('delete')) return;
 		navigate(`product/${_id}`);
 	};
 
